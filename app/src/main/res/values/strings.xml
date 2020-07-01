@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">WinstarsTest</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tasks">Tasks</string>
+    <string name="time_tracking">Time tracking</string>
+    <string name="day_off">Day off</string>
+    <string name="job_offer">Job offer</string>
+    <string name="bonuses">Bonuses</string>
+    <string name="winstars_open">Winstars Open</string>
+    <string name="feedback">FeedBack</string>
+
 </resources>
