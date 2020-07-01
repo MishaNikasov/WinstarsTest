@@ -1,11 +1,6 @@
-package com.nikasov.winstarstest.data.model
+package com.nikasov.winstarstest.data.room.model
 
-data class TimeTrackingModel(
-
-    var type : TimeTrackingTypes
-
-
-) {
+class Util {
     enum class TimeTrackingTypes (val type : String) {
         WORK("Work"),
         EDUCATION("Education"),

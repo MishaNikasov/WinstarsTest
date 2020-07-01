@@ -4,22 +4,22 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.data.local.model.ActionModel
-import kotlinx.android.synthetic.main.item_action.view.*
+import com.nikasov.winstarstest.data.room.model.tracking.TimeTrackingModel
+import kotlinx.android.synthetic.main.item_time_tracking.view.*
+import java.util.*
 
-class ActionsAdapter(private val interaction: Interaction? = null) :
+class TimeTrackingAdapter(private val interaction: Interaction? = null) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val callback = object : DiffUtil.ItemCallback<ActionModel>() {
-        override fun areItemsTheSame(oldItem: ActionModel, newItem: ActionModel): Boolean {
+    private val callback = object : DiffUtil.ItemCallback<TimeTrackingModel>() {
+        override fun areItemsTheSame(oldItem: TimeTrackingModel, newItem: TimeTrackingModel): Boolean {
             return oldItem == newItem
         }
-        override fun areContentsTheSame(oldItem: ActionModel, newItem: ActionModel): Boolean {
-            return oldItem.title == newItem.title
+        override fun areContentsTheSame(oldItem: TimeTrackingModel, newItem: TimeTrackingModel): Boolean {
+            return oldItem.id == newItem.id
         }
     }
 
@@ -29,7 +29,7 @@ class ActionsAdapter(private val interaction: Interaction? = null) :
 
         return ProfileActionViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_action,
+                R.layout.item_time_tracking,
                 parent,
                 false
             ),
@@ -40,7 +40,7 @@ class ActionsAdapter(private val interaction: Interaction? = null) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is ProfileActionViewHolder -> {
-                holder.bind(differ.currentList.get(position))
+                holder.bind(differ.currentList[position])
             }
         }
     }
@@ -49,7 +49,7 @@ class ActionsAdapter(private val interaction: Interaction? = null) :
         return differ.currentList.size
     }
 
-    fun submitList(list: List<ActionModel>) {
+    fun submitList(list: List<TimeTrackingModel>) {
         differ.submitList(list)
     }
 
@@ -58,25 +58,18 @@ class ActionsAdapter(private val interaction: Interaction? = null) :
         private val interaction: Interaction?
     ) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: ActionModel) = with(itemView) {
+        fun bind(item: TimeTrackingModel) = with(itemView) {
             itemView.setOnClickListener {
                 interaction?.onItemSelected(adapterPosition, item)
             }
-
-            val actionIco =
-                if (item.isAdd)
-                    R.drawable.ic_add
-                else
-                    R.drawable.ic_arrow_forward
-
-            itemView.title.text = item.title
-            itemView.icon.setImageDrawable(ContextCompat.getDrawable(itemView.context, item.icon))
-            itemView.action.setImageDrawable(ContextCompat.getDrawable(itemView.context, actionIco))
+            itemView.trackText.text.apply {
+                item.text
+            }
         }
     }
 
     interface Interaction {
-        fun onItemSelected(position: Int, item: ActionModel)
+        fun onItemSelected(position: Int, item: TimeTrackingModel)
     }
 }
 

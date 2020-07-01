@@ -1,7 +1,7 @@
 package com.nikasov.winstarstest.di
 
 import android.content.Context
-import com.nikasov.winstarstest.data.ProfileRepository
+import com.nikasov.winstarstest.data.local.ProfileRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,5 +14,6 @@ import javax.inject.Singleton
 class DataModule {
     @Provides
     @Singleton
-    fun provideDataRepository (@ApplicationContext context: Context) = ProfileRepository(context)
+    fun provideDataRepository (@ApplicationContext context: Context) =
+        ProfileRepository(context)
 }

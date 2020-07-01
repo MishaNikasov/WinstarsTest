@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.data.model.ActionModel
+import com.nikasov.winstarstest.data.local.model.ActionModel
 import com.nikasov.winstarstest.ui.adapter.ActionsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_profile.*

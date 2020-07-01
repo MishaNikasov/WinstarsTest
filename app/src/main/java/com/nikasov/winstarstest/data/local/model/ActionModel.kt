@@ -1,4 +1,4 @@
-package com.nikasov.winstarstest.data.model
+package com.nikasov.winstarstest.data.local.model
 
 data class ActionModel (
     var icon : Int,

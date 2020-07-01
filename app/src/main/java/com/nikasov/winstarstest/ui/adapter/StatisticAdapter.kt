@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.data.model.StatisticModel
+import com.nikasov.winstarstest.data.local.model.StatisticModel
 import kotlinx.android.synthetic.main.item_action.view.title
 import kotlinx.android.synthetic.main.item_statistic.view.*
 

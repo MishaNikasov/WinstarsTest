@@ -1,10 +1,10 @@
-package com.nikasov.winstarstest.data
+package com.nikasov.winstarstest.data.local
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.data.model.ActionModel
-import com.nikasov.winstarstest.data.model.StatisticModel
+import com.nikasov.winstarstest.data.local.model.ActionModel
+import com.nikasov.winstarstest.data.local.model.StatisticModel
 import javax.inject.Inject
 
 class ProfileRepository @Inject constructor (

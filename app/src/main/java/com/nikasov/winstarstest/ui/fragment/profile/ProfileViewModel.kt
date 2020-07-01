@@ -2,7 +2,7 @@ package com.nikasov.winstarstest.ui.fragment.profile
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import com.nikasov.winstarstest.data.ProfileRepository
+import com.nikasov.winstarstest.data.local.ProfileRepository
 
 class ProfileViewModel @ViewModelInject constructor(
     private val profileRepository: ProfileRepository
