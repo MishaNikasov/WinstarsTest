@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_profile_scene"
     tools:context=".ui.fragment.profile.ProfileFragment">
 
     <TextView
@@ -19,40 +20,54 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:background="@drawable/ripple_bg_round"
+        android:padding="@dimen/basic_padding"
         android:id="@+id/arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_marginEnd="@dimen/big_margin"
         android:src="@drawable/ic_arrow"
         app:layout_constraintBottom_toBottomOf="@+id/nameText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/nameText" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:paddingTop="@dimen/big_padding"
-        android:paddingStart="@dimen/basic_padding"
-        android:paddingEnd="@dimen/basic_padding"
-        android:paddingBottom="@dimen/basic_padding"
-        android:background="@drawable/bg_top_corners"
-        android:layout_marginTop="@dimen/big_margin"
-        app:layout_constraintTop_toBottomOf="@id/nameText"
+    <FrameLayout
+        android:id="@+id/transparentBg"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/big_margin"
+        android:background="@drawable/bg_top_corners_transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/statisticRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/basic_padding"
+        android:paddingEnd="@dimen/basic_padding"
+        android:overScrollMode="never"
+        android:paddingTop="@dimen/basic_padding"
+        android:paddingBottom="@dimen/basic_padding"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/transparentBg"
+        tools:listitem="@layout/item_statistic" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/actionsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_top_corners"
+        android:overScrollMode="never"
+        android:paddingTop="@dimen/big_padding"
+        android:paddingBottom="@dimen/basic_padding"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statisticRecycler"
+        tools:listitem="@layout/item_action" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_profile_action"
-            android:id="@+id/profileRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>

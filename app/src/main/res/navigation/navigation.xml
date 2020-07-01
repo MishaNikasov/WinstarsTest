@@ -9,5 +9,13 @@
         android:id="@+id/profileFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/from_profile_to_timeTracking"
+            app:destination="@id/timeTrackingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timeTrackingFragment"
+        android:name="com.nikasov.winstarstest.ui.fragment.tracking.TimeTrackingFragment"
+        android:label="TimeTrackingFragment" />
 </navigation>

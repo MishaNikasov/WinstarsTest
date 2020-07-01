@@ -10,4 +10,6 @@ class ProfileViewModel @ViewModelInject constructor(
 
     fun getAllActions() = profileRepository.getAllProfileActions()
 
+    fun getStatistic() = profileRepository.getStatistic()
+
 }
