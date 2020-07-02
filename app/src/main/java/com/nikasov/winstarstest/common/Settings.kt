@@ -1,5 +1,5 @@
 package com.nikasov.winstarstest.common
 
 object Settings {
-    var IS_LOGGED_IN : Boolean = true
+    var USER_NAME : String = ""
 }

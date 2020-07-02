@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_time_tracking.*
 
 @AndroidEntryPoint
 class TimeTrackingFragment : Fragment(R.layout.fragment_time_tracking) {
-//todo: починить спинеры, добавить по установке времени добавление, узнать как енум в руме
+
     private val viewModel : TimeTrackingViewModel by viewModels()
     private lateinit var datePicker : MaterialDatePicker<*>
     private var today : Long = MaterialDatePicker.todayInUtcMilliseconds()

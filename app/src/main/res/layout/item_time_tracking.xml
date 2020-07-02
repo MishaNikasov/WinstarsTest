@@ -33,7 +33,6 @@
         android:layout_marginEnd="@dimen/basic_margin"
         android:background="@android:color/transparent"
         android:gravity="center|start"
-        android:hint="What you did?"
         android:textColor="@color/text_color"
         android:textSize="@dimen/text_normal"
         app:layout_constraintBottom_toBottomOf="parent"

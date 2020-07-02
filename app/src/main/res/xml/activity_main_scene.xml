@@ -17,18 +17,6 @@
         <OnClick motion:targetId="@+id/arrow" />
     </Transition>
 
-    <Transition
-        android:id="@+id/fromSignToStart"
-        motion:duration="400"
-        motion:constraintSetStart="@+id/signIn"
-        motion:constraintSetEnd="@+id/start" />
-
-    <Transition
-        android:id="@+id/fromStartToSign"
-        motion:duration="400"
-        motion:constraintSetEnd="@+id/signIn"
-        motion:constraintSetStart="@+id/start" />
-
     <ConstraintSet android:id="@+id/start">
         <Constraint
             android:visibility="invisible"

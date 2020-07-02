@@ -28,4 +28,8 @@ class RoomModule {
     @Provides
     @Singleton
     fun provideTimeTrackingDAO(db : Database) = db.getTimeTrackingDAO()
+
+    @Provides
+    @Singleton
+    fun provideProfileDAO(db : Database) = db.getProfileDAO()
 }
