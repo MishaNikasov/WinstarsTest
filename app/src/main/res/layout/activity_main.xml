@@ -25,6 +25,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?selectableItemBackgroundBorderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|start"

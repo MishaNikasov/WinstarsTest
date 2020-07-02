@@ -4,6 +4,7 @@
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
+        android:id="@+id/fromStartToEnd"
         motion:constraintSetStart="@id/start"
         motion:constraintSetEnd="@+id/end"
         motion:duration="400">
@@ -15,6 +16,19 @@
         </KeyFrameSet>
         <OnClick motion:targetId="@+id/arrow" />
     </Transition>
+
+    <Transition
+        android:id="@+id/fromSignToStart"
+        motion:duration="400"
+        motion:constraintSetStart="@+id/signIn"
+        motion:constraintSetEnd="@+id/start" />
+
+    <Transition
+        android:id="@+id/fromStartToSign"
+        motion:duration="400"
+        motion:constraintSetStart="@+id/signIn"
+        motion:constraintSetEnd="@+id/start" />
+
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
@@ -62,11 +76,6 @@
             motion:layout_constraintTop_toBottomOf="@+id/statisticRecycler" />
     </ConstraintSet>
 
-    <Transition
-        android:id="@+id/fromSignToStart"
-        motion:duration="400"
-        motion:constraintSetStart="@+id/signIn"
-        motion:constraintSetEnd="@+id/start" />
 
     <ConstraintSet android:id="@+id/signIn" >
         <Constraint
