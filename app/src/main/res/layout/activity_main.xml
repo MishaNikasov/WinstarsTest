@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
+        android:alpha="0"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,20 +45,19 @@
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
+        android:layout_marginTop="@dimen/big_margin"
         android:id="@+id/nameText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/big_margin"
-        android:layout_marginTop="@dimen/big_margin"
         android:text="Scott Masterson"
         android:textColor="@color/white"
         android:textSize="@dimen/text_average"
         app:layout_constraintEnd_toStartOf="@+id/arrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/winstarsBigLogo" />
 
     <TextView
-        android:alpha="0"
         android:id="@+id/descriptionText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -70,6 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nameText" />
 
     <ImageView
+        android:alpha="0"
         android:id="@+id/arrow"
         android:layout_width="28dp"
         android:layout_height="28dp"
@@ -82,7 +83,6 @@
         app:layout_constraintTop_toTopOf="@+id/nameText" />
 
     <ImageView
-        android:alpha="0"
         android:id="@+id/winstarsBigLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,9 +100,10 @@
         android:layout_marginTop="@dimen/big_margin"
         android:background="@drawable/bg_top_corners_transparent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:alpha="0"
         android:id="@+id/statisticRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

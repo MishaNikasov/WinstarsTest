@@ -9,11 +9,8 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.nikasov.winstarstest.R
 import com.nikasov.winstarstest.common.Constants.RC_SIGN_IN
@@ -22,10 +19,6 @@ import com.nikasov.winstarstest.data.local.model.StatisticModel
 import com.nikasov.winstarstest.ui.adapter.StatisticAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import java.lang.Exception
 
 @AndroidEntryPoint
@@ -54,12 +47,12 @@ class MainActivity : AppCompatActivity() {
                     mainViewModel.getProfile()
                     setTopTitle(Settings.USER_NAME)
                     disableStatistic(false)
-                    applyView(R.id.start)
+                    applyView(R.id.main)
                 }
                 else -> {
                     setTopTitle(destination.label.toString())
                     disableStatistic(true)
-                    applyView(R.id.start)
+                    applyView(R.id.main)
                 }
             }
         }
@@ -71,8 +64,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun applyView(id : Int) {
         root.transitionToState(id)
-        root.rebuildScene()
-        root.requestLayout()
     }
 
     private fun disableStatistic(isHide : Boolean) {
