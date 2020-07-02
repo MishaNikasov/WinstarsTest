@@ -58,6 +58,9 @@ class TimeTrackingFragment : Fragment(R.layout.fragment_time_tracking) {
         timeBtn.setOnClickListener {
             showNumberPicker()
         }
+        finishWorkBtn.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
     }
 
     private fun setUpNumberPicker() {
