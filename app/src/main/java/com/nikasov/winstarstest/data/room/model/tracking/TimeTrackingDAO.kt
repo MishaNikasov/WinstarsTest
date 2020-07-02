@@ -9,6 +9,6 @@ import java.util.*
 interface TimeTrackingDAO {
     @Insert
     suspend fun insertTimeTracking(trackingModel: TimeTrackingModel)
-    @Query("SELECT * FROM TIME_TRACKING_TABLE WHERE date = :date")
+    @Query("SELECT * FROM TIME_TRACKING_TABLE WHERE date = :date ORDER BY date")
     suspend fun getTrackingByDate(date : Date) : List<TimeTrackingModel>
 }

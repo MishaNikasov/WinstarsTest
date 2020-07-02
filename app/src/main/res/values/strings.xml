@@ -11,5 +11,10 @@
     <string name="menu">Menu</string>
     <string name="time_tracking_title">Time Tracking</string>
 
+    <string name="day_format">EEEE d</string>
+    <string name="year_format">yyyy MMMM</string>
+    <string name="h">h</string>
+    <string name="bottom_info">If you have any questions, please contact to the Head Office</string>
+    <string name="sign_google">Sing in with Google</string>
 
 </resources>

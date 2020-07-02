@@ -10,7 +10,10 @@
     <color name="black">#000000</color>
 
     <color name="divider_color">#B3B3B3</color>
+    <color name="stroke_color">#AAAAAA</color>
 
     <color name="text_color">#535353</color>
+    <color name="text_color_white_light">#CCFFFFFF</color>
     <color name="text_color_light">#77787C</color>
+    <color name="ripple_blue">#266AA5FE</color>
 </resources>

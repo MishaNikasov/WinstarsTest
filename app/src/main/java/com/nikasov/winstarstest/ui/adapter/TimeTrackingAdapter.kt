@@ -62,9 +62,9 @@ class TimeTrackingAdapter(private val interaction: Interaction? = null) :
             itemView.setOnClickListener {
                 interaction?.onItemSelected(adapterPosition, item)
             }
-            itemView.trackText.text.apply {
-                item.text
-            }
+            val timeTxt = "${item.time} ${itemView.resources.getString(R.string.h)}"
+            itemView.time.text = timeTxt
+            itemView.trackText.setText(item.text)
         }
     }
 

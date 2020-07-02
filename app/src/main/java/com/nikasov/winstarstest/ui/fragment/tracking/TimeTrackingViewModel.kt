@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nikasov.winstarstest.data.room.model.tracking.TimeTrackingModel
+import com.nikasov.winstarstest.data.room.model.tracking.TimeTrackingTypes
 import com.nikasov.winstarstest.data.room.reposiitory.RoomRepository
 import kotlinx.coroutines.launch
 import java.util.*
@@ -22,10 +23,14 @@ class TimeTrackingViewModel @ViewModelInject constructor(
         currentDate.postValue(date)
     }
 
-    fun addTimeTracking (date : Date, txt : String) {
+    fun addTimeTracking (txt : String, time : Int) {
         viewModelScope.launch {
-            roomRepository.insertTimeTracking(TimeTrackingModel(date, "", txt, 5))
-            getAllTracksByDate(date)
+            roomRepository.insertTimeTracking(TimeTrackingModel(
+                currentDate.value!!,
+               TimeTrackingTypes.WORK,
+                txt,
+                time))
+            getAllTracksByDate(currentDate.value!!)
         }
     }
 

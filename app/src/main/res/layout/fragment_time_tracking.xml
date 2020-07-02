@@ -101,7 +101,7 @@
                     android:layout_marginBottom="@dimen/basic_margin"
                     android:background="@android:color/transparent"
                     android:gravity="center|start"
-                    android:text="Edits on task number 2"
+                    android:hint="What you did?"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/text_normal"
                     app:layout_constraintBottom_toBottomOf="parent"
