@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.nikasov.winstarstest.R
 import com.nikasov.winstarstest.data.room.model.tracking.TimeTrackingModel
+import com.nikasov.winstarstest.data.room.model.tracking.TimeTrackingTypes
 import kotlinx.android.synthetic.main.item_time_tracking.view.*
-import java.util.*
 
 class TimeTrackingAdapter(private val interaction: Interaction? = null) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -64,7 +64,10 @@ class TimeTrackingAdapter(private val interaction: Interaction? = null) :
             }
             val timeTxt = "${item.time} ${itemView.resources.getString(R.string.h)}"
             itemView.time.text = timeTxt
-            itemView.trackText.setText(item.text)
+            itemView.text.setText(item.text)
+            val data = TimeTrackingTypes.values()
+            itemView.spinner.attachDataSource(data.toList())
+            itemView.spinner.selectedIndex = data.indexOf(item.type)
         }
     }
 

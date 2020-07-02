@@ -87,4 +87,6 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
     //material dialog
     implementation 'com.afollestad.material-dialogs:core:3.3.0'
+    //spinner
+    implementation 'com.github.arcadefire:nice-spinner:1.4.4'
 }

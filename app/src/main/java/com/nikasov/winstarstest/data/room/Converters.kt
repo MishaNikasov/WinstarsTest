@@ -13,8 +13,8 @@ class Converters  {
     fun dateToTimestamp(date: Date?): Long? =  date?.time
 
     @TypeConverter
-    fun toTimeTracking(value: String) = TimeTrackingTypes.valueOf(value)
+    fun toTimeTracking(value: String) = enumValueOf<TimeTrackingTypes>(value)
 
     @TypeConverter
-    fun fromTimeTracking(value: TimeTrackingTypes) = value.type
+    fun fromTimeTracking(value: TimeTrackingTypes) = value.getRawType()
 }

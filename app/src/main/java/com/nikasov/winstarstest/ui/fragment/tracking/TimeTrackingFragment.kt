@@ -1,7 +1,6 @@
 package com.nikasov.winstarstest.ui.fragment.tracking
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -10,13 +9,12 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.nikasov.winstarstest.R
+import com.nikasov.winstarstest.data.room.model.tracking.TimeTrackingTypes
 import com.nikasov.winstarstest.ui.Utils
 import com.nikasov.winstarstest.ui.adapter.TimeTrackingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.dialog_number_picker.*
 import kotlinx.android.synthetic.main.fragment_time_tracking.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 @AndroidEntryPoint
 class TimeTrackingFragment : Fragment(R.layout.fragment_time_tracking) {
@@ -61,18 +59,28 @@ class TimeTrackingFragment : Fragment(R.layout.fragment_time_tracking) {
         finishWorkBtn.setOnClickListener {
             requireActivity().onBackPressed()
         }
+        val data = TimeTrackingTypes.values()
+        mainSpinner.attachDataSource(data.asList())
     }
 
     private fun setUpNumberPicker() {
         numberPickerDialog = MaterialDialog(requireContext())
-            .noAutoDismiss()
             .customView(R.layout.dialog_number_picker)
+
         numberPickerDialog.numberPicker.minValue = 1
         numberPickerDialog.numberPicker.maxValue = 24
+
         numberPickerDialog.ok.setOnClickListener {
-            viewModel.addTimeTracking(trackText.text.toString(), numberPickerDialog.numberPicker.value)
+            viewModel.addTimeTracking(
+                mainSpinner.selectedItem as TimeTrackingTypes,
+                mainText.text.toString(),
+                numberPickerDialog.numberPicker.value
+            )
             numberPickerDialog.dismiss()
+            mainText.clearFocus()
+            mainText.text?.clear()
         }
+
         numberPickerDialog.cancel.setOnClickListener {
             numberPickerDialog.dismiss()
         }
