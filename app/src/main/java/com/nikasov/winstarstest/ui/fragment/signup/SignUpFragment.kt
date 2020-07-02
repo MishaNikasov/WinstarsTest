@@ -40,6 +40,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
     private fun signIn() {
         val signInIntent = googleSignInClient.signInIntent
+        signBtn.isEnabled = false
         requireActivity().startActivityForResult(signInIntent, Constants.RC_SIGN_IN)
     }
 
