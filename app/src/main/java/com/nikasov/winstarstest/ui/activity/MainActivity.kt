@@ -23,36 +23,67 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setUpStatisticList()
+        setUpController()
+        setUpUI()
+    }
 
+    private fun setUpController() {
         findNavController(R.id.nav_host_fragment).addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.signUpFragment -> {
-                    disableStatistic(true)
                     setTopTitle(destination.label.toString())
+                    setUpTopBar(TopBarState.EMPTY)
                     applyView(R.id.signIn)
                 }
                 R.id.profileFragment -> {
                     mainViewModel.getProfile()
                     setTopTitle(Settings.USER_NAME)
-                    disableStatistic(false)
+                    setUpTopBar(TopBarState.PROFILE)
                     applyView(R.id.main)
                 }
                 else -> {
                     setTopTitle(destination.label.toString())
-                    disableStatistic(true)
+                    setUpTopBar(TopBarState.EMPTY)
                     applyView(R.id.main)
                 }
             }
         }
+    }
 
-        if (checkIsLogged()) {
-            goToProfile()
+    private fun setUpTopBar(state: TopBarState) {
+        when (state) {
+            TopBarState.EMPTY -> {
+                showStatisticArrow(false)
+            }
+            TopBarState.PROFILE -> {
+                showStatisticArrow(true)
+            }
         }
+
+    }
+
+    private fun setUpUI() {
+
+        mainViewModel.launchSplashScreen()
+
+//        mainViewModel.splashScreen.observe(this, Observer {
+//            if (it) {
+//                splashScreen.visibility = View.VISIBLE
+//            }
+//            else {
+//                splashScreen.visibility = View.INVISIBLE
+//            }
+//        })
 
         mainViewModel.profile.observe(this, Observer {
             setTopTitle(it.name)
         })
+
+        setUpStatisticList()
+
+        if (checkIsLogged()) {
+            goToProfile()
+        }
     }
 
     private fun applyView(id : Int) {
@@ -70,8 +101,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun disableStatistic(isHide : Boolean) {
-        if (isHide)
+    private fun showStatisticArrow(isShow : Boolean) {
+        if (!isShow)
             arrow.alpha = 0f
         else {
             arrow.alpha = 1f
@@ -81,18 +112,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setTopTitle (title : String) {
         nameText.text = title
-    }
-
-    fun loginState(isLogin: Boolean) {
-        if (isLogin) {
-            winstarsBigLogo.visibility = View.VISIBLE
-            descriptionText.visibility = View.VISIBLE
-            toolbar.visibility = View.INVISIBLE
-        } else {
-            winstarsBigLogo.visibility = View.INVISIBLE
-            descriptionText.visibility = View.INVISIBLE
-            toolbar.visibility = View.VISIBLE
-        }
     }
 
     private fun setUpStatisticList() {
@@ -110,5 +129,22 @@ class MainActivity : AppCompatActivity() {
         statisticRecycler.apply {
             adapter = statisticAdapter
         }
+    }
+
+    fun loginState(isLogin: Boolean) {
+        if (isLogin) {
+            winstarsBigLogo.visibility = View.VISIBLE
+            descriptionText.visibility = View.VISIBLE
+            toolbar.visibility = View.INVISIBLE
+        } else {
+            winstarsBigLogo.visibility = View.INVISIBLE
+            descriptionText.visibility = View.INVISIBLE
+            toolbar.visibility = View.VISIBLE
+        }
+    }
+
+    enum class TopBarState {
+        EMPTY,
+        PROFILE,
     }
 }

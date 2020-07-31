@@ -130,4 +130,11 @@
         app:layout_constraintTop_toTopOf="@+id/transparentBg"
         app:navGraph="@navigation/navigation" />
 
+    <include
+        android:visibility="gone"
+        android:id="@+id/splashScreen"
+        layout="@layout/splash_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </androidx.constraintlayout.motion.widget.MotionLayout>
