@@ -85,6 +85,85 @@
             motion:layout_constraintTop_toTopOf="@+id/transparentBg" />
     </ConstraintSet>
 
+    <ConstraintSet android:id="@+id/task">
+        <Constraint
+            android:visibility="invisible"
+            android:id="@+id/statisticRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:paddingTop="@dimen/basic_padding"
+            android:paddingBottom="@dimen/basic_padding"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/firstText"
+            motion:layout_constraintTop_toTopOf="@+id/transparentBg" />
+        <Constraint
+            android:alpha="0"
+            android:layout_height="wrap_content"
+            motion:layout_constraintEnd_toStartOf="@+id/arrow"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/big_margin"
+            motion:layout_constraintTop_toBottomOf="@+id/firstText"
+            android:id="@+id/descriptionText" />
+        <Constraint
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:alpha="1"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:alpha="0"
+            android:id="@+id/winstarsBigLogo"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/big_margin"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/big_margin" />
+        <Constraint
+            android:id="@+id/transparentBg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/firstText"
+            android:layout_marginTop="@dimen/big_margin" />
+        <Constraint
+            android:id="@+id/firstText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:layout_marginStart="@dimen/big_margin"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/big_margin" />
+        <Constraint
+            android:id="@+id/nav_host_fragment"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="@+id/transparentBg" />
+        <Constraint
+            android:id="@+id/fromMeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/basic_margin"
+            motion:layout_constraintTop_toTopOf="@id/firstText"
+            motion:layout_constraintEnd_toStartOf="@+id/toMeBtn"
+            motion:layout_constraintBottom_toTopOf="@id/nav_host_fragment"
+            android:alpha="1" />
+        <Constraint
+            android:id="@+id/toMeBtn"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/big_margin"
+            motion:layout_constraintTop_toTopOf="@id/firstText"
+            motion:layout_constraintBottom_toTopOf="@id/nav_host_fragment"
+            android:alpha="1" />
+    </ConstraintSet>
+
     <ConstraintSet android:id="@+id/end">
         <Constraint
             android:visibility="visible"

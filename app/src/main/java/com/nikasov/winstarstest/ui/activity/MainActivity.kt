@@ -2,6 +2,7 @@ package com.nikasov.winstarstest.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
@@ -42,6 +43,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.closedMessageFragment -> {
                     setUpTopBar(TopBarState.CLOSED_MESSAGE)
                 }
+                R.id.fromMeFragment -> {
+                    setUpTopBar(TopBarState.TASK)
+                }
                 else -> {
                     setUpTopBar(TopBarState.EMPTY)
                     setTopTitle(destination.label.toString())
@@ -64,6 +68,10 @@ class MainActivity : AppCompatActivity() {
                 mainViewModel.getProfile()
                 showStatisticArrow(true)
                 applyView(R.id.main)
+            }
+            TopBarState.TASK -> {
+                showStatisticArrow(false)
+                applyView(R.id.task)
             }
             TopBarState.CLOSED_MESSAGE -> {
                 setTopTitle("All massage", "Closed notifications")
@@ -175,5 +183,6 @@ class MainActivity : AppCompatActivity() {
         AUTH,
         PROFILE,
         CLOSED_MESSAGE,
+        TASK
     }
 }

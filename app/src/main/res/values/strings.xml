@@ -23,4 +23,7 @@
     <string name="closed_notification">Closed notifications</string>
     <string name="start_from_scratch">Start from scratch!</string>
     <string name="want_to_add_something">Want to add something?</string>
+    <string name="you_can_only_sign_in_with_a_gmail_account">You can only sign in with a Gmail account</string>
+    <string name="from_me">From me</string>
+    <string name="to_me">To me</string>
 </resources>
