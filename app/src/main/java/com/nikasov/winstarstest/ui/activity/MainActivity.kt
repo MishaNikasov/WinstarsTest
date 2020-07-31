@@ -2,18 +2,17 @@ package com.nikasov.winstarstest.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import com.google.firebase.auth.FirebaseAuth
 import com.nikasov.winstarstest.R
 import com.nikasov.winstarstest.common.Settings
 import com.nikasov.winstarstest.data.local.model.StatisticModel
 import com.nikasov.winstarstest.ui.adapter.StatisticAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -64,10 +63,10 @@ class MainActivity : AppCompatActivity() {
         return mainViewModel.isLogged
     }
 
-    fun goToProfile() {
+    private fun goToProfile() {
         findNavController(R.id.nav_host_fragment).apply {
             popBackStack()
-            navigate(R.id.from_signUp_to_profile)
+            navigate(R.id.to_profile)
         }
     }
 
@@ -84,10 +83,22 @@ class MainActivity : AppCompatActivity() {
         nameText.text = title
     }
 
+    fun loginState(isLogin: Boolean) {
+        if (isLogin) {
+            winstarsBigLogo.visibility = View.VISIBLE
+            descriptionText.visibility = View.VISIBLE
+            toolbar.visibility = View.INVISIBLE
+        } else {
+            winstarsBigLogo.visibility = View.INVISIBLE
+            descriptionText.visibility = View.INVISIBLE
+            toolbar.visibility = View.VISIBLE
+        }
+    }
+
     private fun setUpStatisticList() {
         val interaction = object : StatisticAdapter.Interaction {
             override fun onItemSelected(position: Int, item: StatisticModel) {
-                Log.d("ProfileFragment", "onItemSelected: ${item.title}")
+                Timber.d("onItemSelected: ${item.title}")
             }
         }
 

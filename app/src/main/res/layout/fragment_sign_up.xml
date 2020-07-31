@@ -49,4 +49,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <FrameLayout
+        android:visibility="gone"
+        android:background="@color/grey_transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/loadingScreen">
+
+        <com.google.android.material.progressindicator.ProgressIndicator
+            android:layout_gravity="center"
+            style="@style/Widget.MaterialComponents.ProgressIndicator.Circular.Indeterminate"
+            app:indicatorColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
