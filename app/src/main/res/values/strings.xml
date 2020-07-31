@@ -21,4 +21,6 @@
     <string name="write">Write</string>
     <string name="select_all">Select all</string>
     <string name="closed_notification">Closed notifications</string>
+    <string name="start_from_scratch">Start from scratch!</string>
+    <string name="want_to_add_something">Want to add something?</string>
 </resources>

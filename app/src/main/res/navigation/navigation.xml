@@ -14,6 +14,11 @@
         android:id="@+id/to_all_message"
         app:destination="@id/allMessageFragment" />
 
+    <action
+        android:launchMode="singleInstance"
+        android:id="@+id/toFromMeFragment"
+        app:destination="@id/fromMeFragment" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.profile.ProfileFragment"
@@ -52,4 +57,14 @@
         android:id="@+id/closedMessageFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.message.closed.ClosedMessageFragment"
         android:label="All massage >> Closed notifications" />
+
+    <fragment
+        android:id="@+id/fromMeFragment"
+        android:name="com.nikasov.winstarstest.ui.fragment.tasks.fromme.FromMeFragment"
+        android:label="My tasks" />
+
+    <fragment
+        android:id="@+id/toMeFragment"
+        android:name="com.nikasov.winstarstest.ui.fragment.tasks.tome.ToMeFragment"
+        android:label="ToMeFragment" />
 </navigation>

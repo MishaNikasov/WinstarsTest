@@ -45,6 +45,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private fun goToAction(title: String) {
         when (title) {
             resources.getString(R.string.time_tracking) -> findNavController().navigate(R.id.from_profile_to_timeTracking)
+            resources.getString(R.string.tasks) -> findNavController().navigate(R.id.toFromMeFragment)
         }
     }
 

@@ -2,13 +2,11 @@ package com.nikasov.winstarstest.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.common.Settings
 import com.nikasov.winstarstest.data.local.model.StatisticModel
 import com.nikasov.winstarstest.ui.adapter.StatisticAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -79,15 +77,15 @@ class MainActivity : AppCompatActivity() {
         setUpToolbarMenu()
         setUpStatisticList()
 
-        launchSplashScreen()
-
-        if (checkIsLogged()) {
+        if (mainViewModel.isLogged) {
             goToProfile()
         }
 
         mainViewModel.profile.observe(this, Observer {
             setTopTitle(it.name)
         })
+
+        launchSplashScreen()
     }
 
     private fun launchSplashScreen() {
@@ -113,10 +111,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun applyView(id : Int) {
         root.transitionToState(id)
-    }
-
-    private fun checkIsLogged(): Boolean {
-        return mainViewModel.isLogged
     }
 
     private fun goToProfile() {
@@ -170,20 +164,9 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.getStatistic().observe(this, Observer {list ->
             statisticAdapter.submitList(list)
         })
+
         statisticRecycler.apply {
             adapter = statisticAdapter
-        }
-    }
-
-    fun loginState(isLogin: Boolean) {
-        if (isLogin) {
-            winstarsBigLogo.visibility = View.VISIBLE
-            descriptionText.visibility = View.VISIBLE
-            toolbar.visibility = View.INVISIBLE
-        } else {
-            winstarsBigLogo.visibility = View.INVISIBLE
-            descriptionText.visibility = View.INVISIBLE
-            toolbar.visibility = View.VISIBLE
         }
     }
 
