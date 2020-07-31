@@ -1,25 +1,18 @@
 package com.nikasov.winstarstest.ui.activity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
-import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.common.Constants.RC_SIGN_IN
 import com.nikasov.winstarstest.common.Settings
 import com.nikasov.winstarstest.data.local.model.StatisticModel
 import com.nikasov.winstarstest.ui.adapter.StatisticAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Exception
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -93,43 +86,6 @@ class MainActivity : AppCompatActivity() {
         })
         statisticRecycler.apply {
             adapter = statisticAdapter
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account = task.getResult(ApiException::class.java)!!
-                firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: ApiException) {
-                Log.d("TAG", "onActivityResult: ${e.localizedMessage}")
-            }
-        }
-    }
-
-    private fun firebaseAuthWithGoogle(idToken: String) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    mainViewModel.saveProfile(auth.currentUser?.displayName.toString())
-                    mainViewModel.getProfile()
-                    findNavController(R.id.nav_host_fragment).navigate(R.id.from_signUp_to_profile)
-                }
-            }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val user = auth.currentUser
-        user?.let {
-            try {
-//                findNavController(R.id.nav_host_fragment).navigate(R.id.from_signUp_to_profile)
-            } catch (e : Exception) {
-
-            }
         }
     }
 }
