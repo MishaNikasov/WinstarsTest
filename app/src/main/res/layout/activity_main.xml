@@ -165,8 +165,8 @@
         app:navGraph="@navigation/navigation" />
 
     <include
-        android:visibility="gone"
         android:id="@+id/splashScreen"
+        android:alpha="1"
         layout="@layout/splash_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

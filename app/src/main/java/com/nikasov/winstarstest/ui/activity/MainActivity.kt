@@ -3,6 +3,7 @@ package com.nikasov.winstarstest.ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -12,6 +13,10 @@ import com.nikasov.winstarstest.data.local.model.StatisticModel
 import com.nikasov.winstarstest.ui.adapter.StatisticAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 @AndroidEntryPoint
@@ -23,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setUpController()
         setUpUI()
     }
 
@@ -64,27 +68,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpUI() {
 
-        mainViewModel.launchSplashScreen()
-
         setUpToolbarMenu()
+        setUpStatisticList()
 
-//        mainViewModel.splashScreen.observe(this, Observer {
-//            if (it) {
-//                splashScreen.visibility = View.VISIBLE
-//            }
-//            else {
-//                splashScreen.visibility = View.INVISIBLE
-//            }
-//        })
+        launchSplashScreen()
+
+        if (checkIsLogged()) {
+            goToProfile()
+        }
 
         mainViewModel.profile.observe(this, Observer {
             setTopTitle(it.name)
         })
+    }
 
-        setUpStatisticList()
-
-        if (checkIsLogged()) {
-            goToProfile()
+    private fun launchSplashScreen() {
+        val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        CoroutineScope(Dispatchers.Main).launch {
+            splashScreen.alpha = 1f
+            delay(1000)
+            setUpController()
+            delay(500)
+            splashScreen.startAnimation(fadeOutAnimation)
+            delay(250)
+            splashScreen.alpha = 0f
         }
     }
 

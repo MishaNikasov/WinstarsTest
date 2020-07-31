@@ -8,7 +8,6 @@ import com.nikasov.winstarstest.data.Prefs
 import com.nikasov.winstarstest.data.local.repository.ProfileRepository
 import com.nikasov.winstarstest.data.room.model.profile.Profile
 import com.nikasov.winstarstest.data.room.reposiitory.RoomRepository
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainViewModel @ViewModelInject constructor(
@@ -18,7 +17,6 @@ class MainViewModel @ViewModelInject constructor(
 ) : ViewModel() {
 
     val profile : MutableLiveData<Profile> = MutableLiveData()
-    val splashScreen : MutableLiveData<Boolean> = MutableLiveData()
 
     val isLogged = prefs.isLogged().value!!
 
@@ -30,11 +28,4 @@ class MainViewModel @ViewModelInject constructor(
         }
     }
 
-    fun launchSplashScreen() {
-        viewModelScope.launch {
-            splashScreen.postValue(true)
-            delay(2000)
-            splashScreen.postValue(false)
-        }
-    }
 }

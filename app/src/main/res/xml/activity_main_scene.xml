@@ -8,7 +8,6 @@
         motion:constraintSetEnd="@id/main"
         motion:constraintSetStart="@id/signIn"
         motion:duration="400" >
-
     </Transition>
 
     <Transition
