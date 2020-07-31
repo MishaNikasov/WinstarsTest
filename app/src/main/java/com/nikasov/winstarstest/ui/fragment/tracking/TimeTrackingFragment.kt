@@ -10,7 +10,7 @@ import com.afollestad.materialdialogs.customview.customView
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.nikasov.winstarstest.R
 import com.nikasov.winstarstest.data.room.model.tracking.TimeTrackingTypes
-import com.nikasov.winstarstest.ui.Utils
+import com.nikasov.winstarstest.utils.DateUtils
 import com.nikasov.winstarstest.ui.adapter.TimeTrackingAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.dialog_number_picker.*
@@ -47,8 +47,8 @@ class TimeTrackingFragment : Fragment(R.layout.fragment_time_tracking) {
         setUpNumberPicker()
         viewModel.update(today)
         viewModel.currentDate.observe(viewLifecycleOwner, Observer { date ->
-            dayText.text = Utils.formatDate(date, resources.getString(R.string.day_format))
-            yearText.text = Utils.formatDate(date, resources.getString(R.string.year_format))
+            dayText.text = DateUtils.formatDate(date, resources.getString(R.string.day_format))
+            yearText.text = DateUtils.formatDate(date, resources.getString(R.string.year_format))
         })
         calendarBtn.setOnClickListener {
             showCalendar()

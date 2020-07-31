@@ -50,7 +50,7 @@
         <Constraint
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             android:alpha="1"
             motion:layout_constraintTop_toTopOf="parent" />
         <Constraint
@@ -110,7 +110,7 @@
         <Constraint
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             android:alpha="1"
             motion:layout_constraintTop_toTopOf="parent" />
         <Constraint

@@ -13,9 +13,12 @@
 
     <string name="day_format">EEEE d</string>
     <string name="year_format">yyyy MMMM</string>
+    <string name="time_format">hh:mm</string>
     <string name="h">h</string>
     <string name="bottom_info">If you have any questions, please contact to the <font color='#1E43A5'>Head Office</font></string>
     <string name="sign_google">Sing in with Google</string>
     <string name="finished_work">Finished work</string>
     <string name="write">Write</string>
+    <string name="select_all">Select all</string>
+    <string name="closed_notification">Closed notifications</string>
 </resources>

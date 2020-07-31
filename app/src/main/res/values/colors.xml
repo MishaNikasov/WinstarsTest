@@ -14,7 +14,12 @@
     <color name="stroke_color">#AAAAAA</color>
 
     <color name="text_color">#535353</color>
+    <color name="text_color_dark">#212121</color>
+    <color name="text_color_grey">#6A6A6A</color>
     <color name="text_color_white_light">#CCFFFFFF</color>
     <color name="text_color_light">#77787C</color>
     <color name="ripple_blue">#266AA5FE</color>
+
+    <color name="message_unread">#4D6AA5FE</color>
+    <color name="message_read">#1A6AA5FE</color>
 </resources>

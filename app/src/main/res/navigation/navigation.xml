@@ -9,6 +9,10 @@
         android:id="@+id/to_profile"
         app:destination="@id/profileFragment" />
 
+    <action
+        android:id="@+id/to_all_message"
+        app:destination="@id/allMessageFragment" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.profile.ProfileFragment"
@@ -32,4 +36,9 @@
             android:id="@+id/from_signUp_to_profile"
             app:destination="@id/profileFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/allMessageFragment"
+        android:name="com.nikasov.winstarstest.ui.fragment.message.AllMessageFragment"
+        android:label="All massage" />
 </navigation>

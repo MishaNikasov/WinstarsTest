@@ -6,9 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
 import com.nikasov.winstarstest.data.Prefs
-import com.nikasov.winstarstest.data.local.ProfileRepository
+import com.nikasov.winstarstest.data.local.repository.ProfileRepository
 import com.nikasov.winstarstest.data.room.model.profile.Profile
 import com.nikasov.winstarstest.data.room.reposiitory.RoomRepository
 import com.nikasov.winstarstest.utils.Resource

@@ -1,7 +1,5 @@
 package com.nikasov.winstarstest.data.room.reposiitory
 
-import androidx.room.Insert
-import androidx.room.Query
 import com.nikasov.winstarstest.data.room.model.profile.Profile
 import com.nikasov.winstarstest.data.room.model.profile.ProfileDAO
 import com.nikasov.winstarstest.data.room.model.tracking.TimeTrackingDAO

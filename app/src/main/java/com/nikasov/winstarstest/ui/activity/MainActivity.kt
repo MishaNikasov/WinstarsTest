@@ -66,6 +66,8 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.launchSplashScreen()
 
+        setUpToolbarMenu()
+
 //        mainViewModel.splashScreen.observe(this, Observer {
 //            if (it) {
 //                splashScreen.visibility = View.VISIBLE
@@ -83,6 +85,14 @@ class MainActivity : AppCompatActivity() {
 
         if (checkIsLogged()) {
             goToProfile()
+        }
+    }
+
+    private fun setUpToolbarMenu() {
+        notifications.setOnClickListener {
+            findNavController(R.id.nav_host_fragment).apply {
+                navigate(R.id.to_all_message)
+            }
         }
     }
 

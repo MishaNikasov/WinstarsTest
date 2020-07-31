@@ -1,9 +1,9 @@
-package com.nikasov.winstarstest.ui
+package com.nikasov.winstarstest.utils
 
 import java.text.SimpleDateFormat
 import java.util.*
 
-object Utils {
+object DateUtils {
 
     fun formatDate(date : Date, type : String) : String {
         val simpleDateFormat = SimpleDateFormat(type, Locale.getDefault())

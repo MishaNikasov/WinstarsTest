@@ -1,4 +1,4 @@
-package com.nikasov.winstarstest.data.local
+package com.nikasov.winstarstest.data.local.repository
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData

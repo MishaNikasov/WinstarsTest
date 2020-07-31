@@ -5,12 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nikasov.winstarstest.data.Prefs
-import com.nikasov.winstarstest.data.local.ProfileRepository
+import com.nikasov.winstarstest.data.local.repository.ProfileRepository
 import com.nikasov.winstarstest.data.room.model.profile.Profile
 import com.nikasov.winstarstest.data.room.reposiitory.RoomRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class MainViewModel @ViewModelInject constructor(
     private val profileRepository: ProfileRepository,
