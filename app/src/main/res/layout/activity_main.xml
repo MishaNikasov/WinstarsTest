@@ -80,16 +80,39 @@
 
     <TextView
         android:layout_marginTop="@dimen/big_margin"
-        android:id="@+id/nameText"
-        android:layout_width="0dp"
+        android:id="@+id/firstText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/big_margin"
         android:text="Scott Masterson"
         android:textColor="@color/white"
         android:textSize="@dimen/text_average"
-        app:layout_constraintEnd_toStartOf="@+id/arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/winstarsBigLogo" />
+
+    <ImageView
+        android:alpha="0"
+        android:layout_marginStart="@dimen/basic_margin"
+        android:id="@+id/textArrows"
+        android:src="@drawable/ic_text_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/firstText"
+        app:layout_constraintTop_toTopOf="@+id/firstText"
+        app:layout_constraintStart_toEndOf="@id/firstText" />
+
+    <TextView
+        android:id="@+id/secondText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/basic_margin"
+        android:alpha="0"
+        android:text="Scott Masterson"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_average"
+        app:layout_constraintBottom_toBottomOf="@+id/firstText"
+        app:layout_constraintStart_toEndOf="@+id/textArrows"
+        app:layout_constraintTop_toTopOf="@+id/firstText" />
 
     <TextView
         android:id="@+id/descriptionText"
@@ -101,7 +124,7 @@
         android:textSize="@dimen/text_normal"
         app:layout_constraintEnd_toStartOf="@+id/arrow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintTop_toBottomOf="@+id/firstText" />
 
     <ImageView
         android:alpha="0"
@@ -112,9 +135,9 @@
         android:background="@drawable/ripple_bg_round"
         android:padding="@dimen/basic_padding"
         android:src="@drawable/ic_arrow"
-        app:layout_constraintBottom_toBottomOf="@+id/nameText"
+        app:layout_constraintBottom_toBottomOf="@+id/firstText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nameText" />
+        app:layout_constraintTop_toTopOf="@+id/firstText" />
 
     <ImageView
         android:id="@+id/winstarsBigLogo"
@@ -166,9 +189,8 @@
 
     <include
         android:id="@+id/splashScreen"
-        android:alpha="1"
+        android:alpha="0"
         layout="@layout/splash_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
 </androidx.constraintlayout.motion.widget.MotionLayout>

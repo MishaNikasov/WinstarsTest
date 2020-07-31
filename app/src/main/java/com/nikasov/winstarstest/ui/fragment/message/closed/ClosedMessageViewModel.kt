@@ -1,4 +1,4 @@
-package com.nikasov.winstarstest.ui.fragment.message
+package com.nikasov.winstarstest.ui.fragment.message.closed
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +8,7 @@ import com.nikasov.winstarstest.data.local.repository.ProfileRepository
 import com.nikasov.winstarstest.data.local.model.MessageModel
 import com.nikasov.winstarstest.data.local.repository.MessageRepository
 
-class AllMessageViewModel @ViewModelInject constructor(
+class ClosedMessageViewModel @ViewModelInject constructor(
     private val messageRepository: MessageRepository,
     private val prefs: Prefs
 ) : ViewModel(){
@@ -16,7 +16,7 @@ class AllMessageViewModel @ViewModelInject constructor(
     val messages = MutableLiveData<List<MessageModel>>()
 
     fun getMessages() {
-        messages.postValue(messageRepository.getAllMessages())
+        messages.postValue(messageRepository.getAllClosedMessages())
     }
 
 }

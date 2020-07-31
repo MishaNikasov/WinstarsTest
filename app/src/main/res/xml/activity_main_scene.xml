@@ -35,7 +35,7 @@
             android:paddingBottom="@dimen/basic_padding"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/nameText"
+            motion:layout_constraintTop_toBottomOf="@+id/firstText"
             motion:layout_constraintTop_toTopOf="@+id/transparentBg" />
         <Constraint
             android:alpha="0"
@@ -44,7 +44,7 @@
             motion:layout_constraintStart_toStartOf="parent"
             android:layout_width="0dp"
             android:layout_marginStart="@dimen/big_margin"
-            motion:layout_constraintTop_toBottomOf="@+id/nameText"
+            motion:layout_constraintTop_toBottomOf="@+id/firstText"
             android:id="@+id/descriptionText" />
         <Constraint
             android:id="@+id/toolbar"
@@ -66,12 +66,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/nameText"
+            motion:layout_constraintTop_toBottomOf="@+id/firstText"
             android:layout_marginTop="@dimen/big_margin" />
         <Constraint
-            android:id="@+id/nameText"
-            motion:layout_constraintEnd_toStartOf="@+id/arrow"
-            android:layout_width="0dp"
+            android:id="@+id/firstText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             motion:layout_constraintTop_toBottomOf="@+id/toolbar"
             android:layout_marginStart="@dimen/big_margin"
@@ -97,7 +96,7 @@
             android:paddingBottom="@dimen/basic_padding"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/nameText"
+            motion:layout_constraintTop_toBottomOf="@+id/firstText"
             motion:layout_constraintTop_toTopOf="@+id/transparentBg" />
         <Constraint
             android:id="@+id/nav_host_fragment"
@@ -126,12 +125,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/nameText"
+            motion:layout_constraintTop_toBottomOf="@+id/firstText"
             android:layout_marginTop="@dimen/big_margin" />
         <Constraint
-            android:id="@+id/nameText"
-            motion:layout_constraintEnd_toStartOf="@+id/arrow"
-            android:layout_width="0dp"
+            android:id="@+id/firstText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             motion:layout_constraintTop_toBottomOf="@+id/toolbar"
             android:layout_marginStart="@dimen/big_margin"
@@ -143,7 +141,7 @@
             motion:layout_constraintEnd_toStartOf="@+id/arrow"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            motion:layout_constraintTop_toBottomOf="@+id/nameText"
+            motion:layout_constraintTop_toBottomOf="@+id/firstText"
             android:layout_marginStart="@dimen/big_margin"
             motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>

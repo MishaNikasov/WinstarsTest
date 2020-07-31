@@ -6,5 +6,6 @@ data class MessageModel (
     var title : String,
     var descriptor: String,
     var date : Date,
-    var count : Int
+    var count : Int,
+    var isClosed : Boolean = false
 )

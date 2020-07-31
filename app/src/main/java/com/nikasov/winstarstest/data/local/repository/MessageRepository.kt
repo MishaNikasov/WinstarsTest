@@ -38,4 +38,45 @@ class MessageRepository @Inject constructor (
         return messageList
     }
 
+    fun getAllClosedMessages() : List<MessageModel> {
+        val messageList = arrayListOf<MessageModel>()
+        messageList.add(
+                MessageModel(
+                "Tasks",
+                "Something very important needs to be done if the work is to be appreciated.",
+                Calendar.getInstance().time,
+                -1,
+                true
+            )
+        )
+        messageList.add(
+                MessageModel(
+                "Job offer",
+                "Something very important needs to be done if the work is to be appreciated.",
+                Calendar.getInstance().time,
+                -1,
+                true
+            )
+        )
+        messageList.add(
+                MessageModel(
+                "Winstars Open",
+                "Something very important needs to be done if the work is to be appreciated.",
+                Calendar.getInstance().time,
+                -1,
+                true
+            )
+        )
+        messageList.add(
+                MessageModel(
+                "Winstars Open",
+                "Something very important needs to be done if the work is to be appreciated.",
+                Calendar.getInstance().time,
+                -1,
+                true
+            )
+        )
+        return messageList
+    }
+
 }

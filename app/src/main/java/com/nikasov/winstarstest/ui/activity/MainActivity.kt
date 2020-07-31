@@ -36,19 +36,17 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.signUpFragment -> {
                     setTopTitle(destination.label.toString())
-                    setUpTopBar(TopBarState.EMPTY)
-                    applyView(R.id.signIn)
+                    setUpTopBar(TopBarState.AUTH)
                 }
                 R.id.profileFragment -> {
-                    mainViewModel.getProfile()
-                    setTopTitle(Settings.USER_NAME)
                     setUpTopBar(TopBarState.PROFILE)
-                    applyView(R.id.main)
+                }
+                R.id.closedMessageFragment -> {
+                    setUpTopBar(TopBarState.CLOSED_MESSAGE)
                 }
                 else -> {
-                    setTopTitle(destination.label.toString())
                     setUpTopBar(TopBarState.EMPTY)
-                    applyView(R.id.main)
+                    setTopTitle(destination.label.toString())
                 }
             }
         }
@@ -58,12 +56,22 @@ class MainActivity : AppCompatActivity() {
         when (state) {
             TopBarState.EMPTY -> {
                 showStatisticArrow(false)
+                applyView(R.id.main)
+            }
+            TopBarState.AUTH -> {
+                showStatisticArrow(false)
+                applyView(R.id.signIn)
             }
             TopBarState.PROFILE -> {
+                mainViewModel.getProfile()
                 showStatisticArrow(true)
+                applyView(R.id.main)
+            }
+            TopBarState.CLOSED_MESSAGE -> {
+                setTopTitle("All massage", "Closed notifications")
+                applyView(R.id.main)
             }
         }
-
     }
 
     private fun setUpUI() {
@@ -88,7 +96,7 @@ class MainActivity : AppCompatActivity() {
             splashScreen.alpha = 1f
             delay(1000)
             setUpController()
-            delay(500)
+            delay(1000)
             splashScreen.startAnimation(fadeOutAnimation)
             delay(250)
             splashScreen.alpha = 0f
@@ -119,16 +127,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showStatisticArrow(isShow : Boolean) {
-        if (!isShow)
+        if (!isShow){
             arrow.alpha = 0f
+            arrow.isEnabled = false
+        }
         else {
+            arrow.isEnabled = true
             arrow.alpha = 1f
             arrow.rotation = 0f
         }
     }
 
-    private fun setTopTitle (title : String) {
-        nameText.text = title
+    private fun showExtendedTopBar(isShow : Boolean) {
+        if (isShow){
+            textArrows.alpha = 1f
+            secondText.alpha = 1f
+        } else {
+            textArrows.alpha = 0f
+            secondText.alpha = 0f
+        }
+    }
+
+    private fun setTopTitle (title : String, secondString: String? = null) {
+        if (secondString == null) {
+            firstText.text = title
+            showExtendedTopBar(false)
+        } else {
+            secondText.text = secondString
+            showExtendedTopBar(true)
+        }
     }
 
     private fun setUpStatisticList() {
@@ -162,6 +189,8 @@ class MainActivity : AppCompatActivity() {
 
     enum class TopBarState {
         EMPTY,
+        AUTH,
         PROFILE,
+        CLOSED_MESSAGE,
     }
 }

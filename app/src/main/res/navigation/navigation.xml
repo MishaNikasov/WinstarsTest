@@ -10,6 +10,7 @@
         app:destination="@id/profileFragment" />
 
     <action
+        android:launchMode="singleInstance"
         android:id="@+id/to_all_message"
         app:destination="@id/allMessageFragment" />
 
@@ -27,6 +28,7 @@
         android:id="@+id/timeTrackingFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.tracking.TimeTrackingFragment"
         android:label="Time Tracking" />
+
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.signup.SignUpFragment"
@@ -38,7 +40,16 @@
     </fragment>
 
     <fragment
+        android:launchMode="singleInstance"
         android:id="@+id/allMessageFragment"
-        android:name="com.nikasov.winstarstest.ui.fragment.message.AllMessageFragment"
-        android:label="All massage" />
+        android:name="com.nikasov.winstarstest.ui.fragment.message.all.AllMessageFragment"
+        android:label="All massage" >
+        <action
+            android:id="@+id/action_allMessageFragment_to_closedMessageFragment"
+            app:destination="@id/closedMessageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/closedMessageFragment"
+        android:name="com.nikasov.winstarstest.ui.fragment.message.closed.ClosedMessageFragment"
+        android:label="All massage >> Closed notifications" />
 </navigation>

@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.nikasov.winstarstest.R
@@ -61,14 +62,26 @@ class MessageAdapter(private val interaction: Interaction? = null) :
         private val interaction: Interaction?
     ) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: MessageModel) = itemView.setOnClickListener {
-            interaction?.onItemSelected(adapterPosition, item)
+        fun bind(item: MessageModel) {
 
-            itemView.counter.text = "${item.count}"
+            itemView.setOnClickListener {
+                interaction?.onItemSelected(adapterPosition, item)
+            }
+
             itemView.title.text = item.title
             itemView.description.text = item.descriptor
             itemView.time.text = DateUtils.formatDate(item.date, itemView.context.resources.getString(R.string.time_format))
+
+            if (item.isClosed) {
+                itemView.backgroundTintList = ContextCompat.getColorStateList(itemView.context, R.color.message_read)
+                itemView.counter.visibility = View.INVISIBLE
+            } else {
+                itemView.backgroundTintList = ContextCompat.getColorStateList(itemView.context, R.color.message_unread)
+                itemView.counter.visibility = View.VISIBLE
+                itemView.counter.text = "${item.count}"
+            }
         }
+
     }
 
     interface Interaction {
