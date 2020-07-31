@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.nikasov.winstarstest.R
 import com.nikasov.winstarstest.common.Settings
@@ -19,13 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     private val mainViewModel : MainViewModel by viewModels()
 
-    private lateinit var auth : FirebaseAuth
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        auth = FirebaseAuth.getInstance()
 
         setUpStatisticList()
 
@@ -50,6 +47,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        if (checkIsLogged()) {
+            goToProfile()
+        }
+
         mainViewModel.profile.observe(this, Observer {
             setTopTitle(it.name)
         })
@@ -57,6 +58,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun applyView(id : Int) {
         root.transitionToState(id)
+    }
+
+    private fun checkIsLogged(): Boolean {
+        return mainViewModel.isLogged
+    }
+
+    fun goToProfile() {
+        findNavController(R.id.nav_host_fragment).apply {
+            popBackStack()
+            navigate(R.id.from_signUp_to_profile)
+        }
     }
 
     private fun disableStatistic(isHide : Boolean) {

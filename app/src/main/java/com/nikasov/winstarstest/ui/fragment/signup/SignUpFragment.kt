@@ -53,6 +53,13 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         startActivityForResult(signInIntent, Constants.RC_SIGN_IN)
     }
 
+    fun goToProfile() {
+        findNavController().apply {
+            popBackStack()
+            navigate(R.id.from_signUp_to_profile)
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Constants.RC_SIGN_IN) {
@@ -73,7 +80,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                 if (task.isSuccessful) {
                     signInViewModel.saveProfile(auth.currentUser?.displayName.toString())
                     signInViewModel.getProfile()
-                    findNavController().navigate(R.id.from_signUp_to_profile)
+                    signInViewModel.saveIsLogged()
+                    goToProfile()
                 }
             }
     }

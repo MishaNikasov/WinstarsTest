@@ -16,11 +16,11 @@ class Prefs  @Inject constructor (
     private val sharedPref = PreferenceManager.getDefaultSharedPreferences(context)
     private val editor = sharedPref.edit()
 
-    fun isFirstRun() = sharedPref.booleanLiveData(FIRST_RUN, true)
+    fun isLogged() = sharedPref.booleanLiveData(FIRST_RUN, false)
 
-    fun saveIsFirstRun() {
+    fun saveIsLogged() {
         editor.apply {
-            putBoolean(FIRST_RUN, false)
+            putBoolean(FIRST_RUN, true)
         }.apply()
     }
 }

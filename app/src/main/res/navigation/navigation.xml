@@ -5,6 +5,10 @@
     android:id="@+id/navigation"
     app:startDestination="@id/signUpFragment">
 
+    <action
+        android:id="@+id/to_profile"
+        app:destination="@id/profileFragment" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.profile.ProfileFragment"
