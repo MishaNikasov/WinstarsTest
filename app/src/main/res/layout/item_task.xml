@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.motion.widget.MotionLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintLayout2"
     android:layout_width="match_parent"
-    android:padding="@dimen/average_padding"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/average_margin"
+    app:layoutDescription="@xml/item_task_scene">
 
     <CheckBox
-        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
         android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="@dimen/average_padding"
+        android:layout_marginEnd="@dimen/basic_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/title" />
 
     <TextView
-        android:textColor="@color/text_color_dark"
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/average_margin"
+        android:layout_marginEnd="@dimen/big_padding"
         android:text="Task number 1. Correct the front end of the page Financial Management"
+        android:textColor="@color/text_color_dark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox"
         app:layout_constraintStart_toEndOf="@+id/checkBox"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,8 +39,8 @@
         android:text="Very interesting additional information, a detailed description of the task."
         android:textColor="@color/text_color_grey"
         android:textSize="@dimen/text_small"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
@@ -51,10 +57,12 @@
         app:layout_constraintTop_toBottomOf="@+id/summary" />
 
     <TextView
-        android:layout_marginTop="@dimen/small_margin"
         android:id="@+id/owner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/average_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:paddingBottom="@dimen/average_margin"
         android:text="Alyosha Popovich"
         android:textColor="@color/red"
         android:textSize="@dimen/text_small"
@@ -62,10 +70,10 @@
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <TextView
-        android:layout_marginStart="@dimen/average_margin"
         android:id="@+id/member"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/average_margin"
         android:layout_marginTop="@dimen/small_margin"
         android:text="Hanna Ivanchuk"
         android:textColor="@color/colorPrimary"
@@ -74,12 +82,24 @@
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:background="@drawable/ripple_bg_round"
-        android:tint="#6A6A6A"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:padding="@dimen/basic_padding"
         android:src="@drawable/ic_arrow"
+        android:tint="#6A6A6A"
         app:layout_constraintBottom_toBottomOf="@+id/member"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="@+id/member" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/bottomDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_color_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

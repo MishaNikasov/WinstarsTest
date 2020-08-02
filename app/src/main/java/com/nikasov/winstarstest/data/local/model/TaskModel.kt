@@ -4,9 +4,9 @@ import java.util.*
 
 data class TaskModel(
     var title: String,
-    var summary: String,
-    var date: Date,
+    var summary: String?,
+    var date: Date?,
     var owner: String,
     var member: String,
-    var tasks: List<String>
+    var tasks: List<SubTaskModel>
 )
