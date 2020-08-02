@@ -66,5 +66,5 @@
     <fragment
         android:id="@+id/toMeFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.tasks.tome.ToMeFragment"
-        android:label="ToMeFragment" />
+        android:label="My tasks" />
 </navigation>

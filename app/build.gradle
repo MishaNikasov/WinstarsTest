@@ -88,14 +88,16 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
-    //material dialog
+    // material dialog
     implementation 'com.afollestad.material-dialogs:core:3.3.0'
-    //spinner
+    // spinner
     implementation 'com.github.arcadefire:nice-spinner:1.4.4'
     implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation 'com.google.android.gms:play-services-auth:18.1.0'
-    //numberpicker
+    // numberpicker
     implementation 'com.shawnlin:number-picker:2.4.10'
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    // advanced recycler
+    implementation 'dev.ahamed.mva2:adapter:2.0.0'
 }

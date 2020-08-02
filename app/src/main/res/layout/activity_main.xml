@@ -83,6 +83,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        android:text="Second Name, First Name"
         android:layout_marginTop="@dimen/big_margin"
         android:id="@+id/firstText"
         android:layout_width="wrap_content"
@@ -194,7 +195,7 @@
         tools:ignore="FragmentTagUsage" />
 
     <TextView
-        android:alpha="0"
+        android:visibility="invisible"
         android:layout_marginEnd="@dimen/basic_margin"
         android:id="@+id/fromMeBtn"
         android:layout_width="wrap_content"
@@ -210,12 +211,11 @@
         app:layout_constraintTop_toTopOf="@id/firstText" />
 
     <TextView
-        android:alpha="0"
+        android:visibility="invisible"
         android:layout_marginEnd="@dimen/big_margin"
         android:id="@+id/toMeBtn"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:background="@drawable/task_btn_bg"
         android:gravity="center"
         android:minWidth="80dp"
         android:minHeight="40dp"

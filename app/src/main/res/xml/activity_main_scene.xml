@@ -152,7 +152,7 @@
             motion:layout_constraintTop_toTopOf="@id/firstText"
             motion:layout_constraintEnd_toStartOf="@+id/toMeBtn"
             motion:layout_constraintBottom_toTopOf="@id/nav_host_fragment"
-            android:alpha="1" />
+            android:visibility="visible" />
         <Constraint
             android:id="@+id/toMeBtn"
             motion:layout_constraintEnd_toEndOf="parent"
@@ -161,7 +161,7 @@
             android:layout_marginEnd="@dimen/big_margin"
             motion:layout_constraintTop_toTopOf="@id/firstText"
             motion:layout_constraintBottom_toTopOf="@id/nav_host_fragment"
-            android:alpha="1" />
+            android:visibility="visible"/>
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">

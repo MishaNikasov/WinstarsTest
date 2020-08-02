@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                     setUpTopBar(TopBarState.CLOSED_MESSAGE)
                 }
                 R.id.fromMeFragment -> {
+                    setTopTitle(destination.label.toString())
                     setUpTopBar(TopBarState.TASK)
                 }
                 else -> {
