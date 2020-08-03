@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="small_margin">4dp</dimen>
+    <dimen name="small_plus_margin">6dp</dimen>
     <dimen name="basic_margin">8dp</dimen>
     <dimen name="average_margin">12dp</dimen>
     <dimen name="mid_margin">16dp</dimen>
@@ -9,6 +10,7 @@
     <dimen name="large_margin">45dp</dimen>
 
     <dimen name="small_padding">4dp</dimen>
+    <dimen name="small_plus_padding">6dp</dimen>
     <dimen name="basic_padding">8dp</dimen>
     <dimen name="average_padding">12dp</dimen>
     <dimen name="mid_padding">16dp</dimen>

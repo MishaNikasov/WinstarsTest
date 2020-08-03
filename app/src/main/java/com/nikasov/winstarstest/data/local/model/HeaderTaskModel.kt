@@ -2,5 +2,7 @@ package com.nikasov.winstarstest.data.local.model
 
 data class HeaderTaskModel (
     var title : String,
-    var taskList : List<TaskModel>
+    var taskList : List<TaskModel>,
+
+    var isExpanded: Boolean = false
 )

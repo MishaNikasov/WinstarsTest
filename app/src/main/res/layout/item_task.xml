@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/mid_margin"
-    app:layoutDescription="@xml/item_task_scene">
+    android:layout_height="wrap_content">
 
-    <CheckBox
+    <com.nikasov.winstarstest.utils.ToggleableRadioButton
         android:id="@+id/checkBox"
-        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        style="@style/Widget.App.RadioBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_padding"
-        android:layout_marginEnd="@dimen/basic_margin"
-        app:layout_constraintBottom_toBottomOf="@+id/title"
+        app:layout_constraintBottom_toBottomOf="@+id/summary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/title" />
 
     <TextView
+        android:layout_marginTop="@dimen/average_margin"
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/average_margin"
         android:layout_marginEnd="@dimen/big_padding"
         android:textColor="@color/text_color_dark"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,11 +29,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:visibility="gone"
         android:id="@+id/summary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_plus_margin"
         android:textColor="@color/text_color_grey"
         android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="@+id/title"
@@ -43,28 +40,27 @@
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
-        android:visibility="gone"
+        android:background="@drawable/date_bg"
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_plus_margin"
         android:drawableStart="@drawable/ic_event_available"
         android:drawablePadding="4dp"
-        android:padding="4dp"
+        android:padding="6dp"
         android:textSize="@dimen/text_small"
         app:layout_constraintStart_toStartOf="@+id/summary"
         app:layout_constraintTop_toBottomOf="@+id/summary" />
 
     <TextView
+        android:paddingBottom="@dimen/mid_margin"
         android:id="@+id/owner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/average_margin"
-        android:layout_marginTop="@dimen/small_margin"
-        android:paddingBottom="@dimen/mid_margin"
+        android:layout_marginTop="@dimen/small_plus_margin"
         android:textColor="@color/red"
         android:textSize="@dimen/text_small"
-        app:layout_constraintStart_toEndOf="@+id/checkBox"
+        app:layout_constraintStart_toStartOf="@id/title"
         app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <TextView
@@ -72,11 +68,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_margin"
-        android:layout_marginTop="@dimen/small_margin"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/text_small"
         app:layout_constraintStart_toEndOf="@+id/owner"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
+        app:layout_constraintTop_toTopOf="@+id/owner" />
 
     <ImageView
         android:id="@+id/arrow"
@@ -99,4 +94,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/subTaskRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/owner"
+        tools:listitem="@layout/item_sub_task" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

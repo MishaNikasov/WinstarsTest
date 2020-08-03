@@ -8,5 +8,7 @@ data class TaskModel(
     var date: Date?,
     var owner: String,
     var member: String,
-    var tasks: List<SubTaskModel>
+    var tasks: List<SubTaskModel>,
+
+    var isExpanded: Boolean = false
 )

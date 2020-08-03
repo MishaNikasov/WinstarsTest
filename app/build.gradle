@@ -98,6 +98,4 @@ dependencies {
     implementation 'com.shawnlin:number-picker:2.4.10'
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
-    // advanced recycler
-    implementation 'dev.ahamed.mva2:adapter:2.0.0'
 }

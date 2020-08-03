@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:background="@drawable/ripple_bg"
+    android:id="@+id/root"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -11,8 +12,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/big_padding"
-        android:paddingEnd="@dimen/big_padding"
         android:paddingTop="@dimen/mid_margin"
+        android:paddingEnd="@dimen/big_padding"
         android:paddingBottom="@dimen/mid_margin"
         android:text="gaDGDS"
         android:textColor="@color/text_color_dark"
@@ -21,10 +22,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        app:layout_constraintTop_toBottomOf="@id/title"
-        android:background="@color/divider_color_light"
+    <ImageView
+        android:background="@drawable/ripple_bg_round"
+        android:id="@+id/arrow"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:padding="@dimen/basic_padding"
+        android:src="@drawable/ic_arrow"
+        android:tint="#6A6A6A"
+        android:layout_marginEnd="@dimen/average_margin"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/taskRecycler"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:listitem="@layout/item_task" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_color_light"
+        app:layout_constraintBottom_toBottomOf="@id/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
