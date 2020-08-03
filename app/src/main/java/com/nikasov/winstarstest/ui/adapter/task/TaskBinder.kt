@@ -1,5 +1,6 @@
 package com.nikasov.winstarstest.ui.adapter.task
 
+import android.animation.ObjectAnimator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.nikasov.winstarstest.utils.DateUtils
 import kotlinx.android.synthetic.main.item_task.view.*
 import mva2.adapter.ItemBinder
 import mva2.adapter.ItemViewHolder
+import timber.log.Timber
 
 class TaskBinder : ItemBinder<TaskModel, TaskBinder.TaskViewHolder>() {
 
@@ -33,6 +35,7 @@ class TaskBinder : ItemBinder<TaskModel, TaskBinder.TaskViewHolder>() {
 
     class TaskViewHolder (itemView: View) : ItemViewHolder<TaskModel>(itemView) {
         fun bind() {
+
             itemView.title.text = item.title
             itemView.owner.text = item.owner
             itemView.member.text = item.member
@@ -46,7 +49,7 @@ class TaskBinder : ItemBinder<TaskModel, TaskBinder.TaskViewHolder>() {
 
             if (item.summary !== null) {
                 itemView.summary.visibility = View.VISIBLE
-                itemView.summary.text = item.title
+                itemView.summary.text = item.summary
             } else {
                 itemView.summary.visibility = View.GONE
             }
@@ -55,17 +58,25 @@ class TaskBinder : ItemBinder<TaskModel, TaskBinder.TaskViewHolder>() {
                 toggleSectionExpansion()
                 checkIsExpansion(isSectionExpanded)
             }
+
             checkIsExpansion(isSectionExpanded)
+
+            itemView.root.setOnClickListener {
+                Timber.d(item.toString())
+            }
         }
 
         private fun checkIsExpansion(isExpansion: Boolean) {
-            val view = itemView as MotionLayout
+            itemView as MotionLayout
+
             if (isExpansion) {
+                ObjectAnimator.ofFloat(itemView.arrow, View.ROTATION, 0f, 180f).setDuration(300).start()
+                itemView.arrow.rotation = 180f
                 itemView.transitionToState(R.id.bottomViewRight)
             } else {
                 itemView.transitionToState(R.id.bottomViewStart)
-                itemView.bottomDivider.visibility = View.VISIBLE
             }
         }
+
     }
 }

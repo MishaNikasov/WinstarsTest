@@ -2,10 +2,10 @@
 <androidx.constraintlayout.motion.widget.MotionLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/constraintLayout2"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/average_margin"
+    android:layout_marginTop="@dimen/mid_margin"
     app:layoutDescription="@xml/item_task_scene">
 
     <CheckBox
@@ -25,18 +25,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_margin"
         android:layout_marginEnd="@dimen/big_padding"
-        android:text="Task number 1. Correct the front end of the page Financial Management"
         android:textColor="@color/text_color_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/checkBox"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/summary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_margin"
-        android:text="Very interesting additional information, a detailed description of the task."
         android:textColor="@color/text_color_grey"
         android:textSize="@dimen/text_small"
         app:layout_constraintEnd_toEndOf="@+id/title"
@@ -44,6 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,7 +51,6 @@
         android:drawableStart="@drawable/ic_event_available"
         android:drawablePadding="4dp"
         android:padding="4dp"
-        android:text="Tomorrow, 8:53"
         android:textSize="@dimen/text_small"
         app:layout_constraintStart_toStartOf="@+id/summary"
         app:layout_constraintTop_toBottomOf="@+id/summary" />
@@ -62,8 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_margin"
         android:layout_marginTop="@dimen/small_margin"
-        android:paddingBottom="@dimen/average_margin"
-        android:text="Alyosha Popovich"
+        android:paddingBottom="@dimen/mid_margin"
         android:textColor="@color/red"
         android:textSize="@dimen/text_small"
         app:layout_constraintStart_toEndOf="@+id/checkBox"
@@ -75,7 +73,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/average_margin"
         android:layout_marginTop="@dimen/small_margin"
-        android:text="Hanna Ivanchuk"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/text_small"
         app:layout_constraintStart_toEndOf="@+id/owner"

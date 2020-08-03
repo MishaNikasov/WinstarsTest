@@ -6,6 +6,7 @@ import com.nikasov.winstarstest.data.local.model.SubTaskModel
 import com.nikasov.winstarstest.data.local.model.TaskModel
 import java.util.*
 import javax.inject.Inject
+import kotlin.collections.ArrayList
 
 class TaskRepository @Inject constructor(
 
@@ -40,7 +41,6 @@ class TaskRepository @Inject constructor(
             hiddenTaskList
         ))
 
-
         modelsList.add(TaskModel(
             "Task number 3",
             null,
@@ -50,17 +50,19 @@ class TaskRepository @Inject constructor(
             hiddenTaskList
         ))
 
-        fullTaskList.add(
-            HeaderTaskModel(
-            "To do (8)", modelsList
+        fullTaskList.add(HeaderTaskModel(
+            "To do (8)",
+            ArrayList(modelsList)
         ))
 
         fullTaskList.add(HeaderTaskModel(
-            "Agreement (8)", modelsList
+            "Agreement (8)",
+            ArrayList(modelsList)
         ))
 
         fullTaskList.add(HeaderTaskModel(
-            "Completed (8)", modelsList
+            "Completed (8)",
+            ArrayList(modelsList)
         ))
 
         return MutableLiveData(fullTaskList)

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:motionInterpolator="linear"
+        motion:duration="250">
+        <KeyFrameSet>
+           <KeyTrigger
+               motion:framePosition="20"
+               motion:onNegativeCross="hide"
+               motion:motionTarget="@id/add"/>
+        </KeyFrameSet>
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@+id/taskRecycler" />
+    </Transition>
+
+    <Transition
+        motion:constraintSetEnd="@+id/start"
+        motion:constraintSetStart="@id/end"
+        motion:motionInterpolator="linear"
+        motion:duration="250">
+        <KeyFrameSet>
+           <KeyTrigger
+               motion:framePosition="10"
+               motion:onPositiveCross="show"
+               motion:motionTarget="@id/add"/>
+        </KeyFrameSet>
+        <OnSwipe
+            motion:dragDirection="dragDown"
+            motion:touchAnchorId="@+id/taskRecycler" />
+    </Transition>
+
+</MotionScene>

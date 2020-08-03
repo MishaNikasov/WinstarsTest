@@ -16,7 +16,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_weight="1"
-            android:paddingTop="@dimen/big_padding"
+            android:paddingTop="@dimen/mid_padding"
             android:id="@+id/actionsRecycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
