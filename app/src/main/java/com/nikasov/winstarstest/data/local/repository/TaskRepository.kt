@@ -49,20 +49,23 @@ class TaskRepository @Inject constructor(
             "Hanna Ivanchuk",
             hiddenTaskList
         ))
-
+        val ar1 = arrayListOf<TaskModel>()
+        ar1.addAll(modelsList)
         fullTaskList.add(HeaderTaskModel(
             "To do (8)",
-            ArrayList(modelsList)
+            ar1
         ))
-
+        val ar2 = arrayListOf<TaskModel>()
+        ar2.addAll(modelsList)
         fullTaskList.add(HeaderTaskModel(
             "Agreement (8)",
-            ArrayList(modelsList)
+            ar2
         ))
-
+        val ar3 = arrayListOf<TaskModel>()
+        ar3.addAll(modelsList)
         fullTaskList.add(HeaderTaskModel(
             "Completed (8)",
-            ArrayList(modelsList)
+            ar3
         ))
 
         return MutableLiveData(fullTaskList)

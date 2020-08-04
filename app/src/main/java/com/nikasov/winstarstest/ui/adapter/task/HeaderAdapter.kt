@@ -48,6 +48,13 @@ class HeaderAdapter(private val interaction: Interaction? = null) :
         when (holder) {
             is HeaderViewHolder -> {
                 holder.bind(differ.currentList[position])
+
+                val item =  differ.currentList[position]
+
+                holder.itemView.setOnClickListener {
+                    item.isExpanded = !item.isExpanded
+                    notifyItemChanged(position)
+                }
             }
         }
     }
@@ -75,22 +82,10 @@ class HeaderAdapter(private val interaction: Interaction? = null) :
 
             itemView.taskRecycler.adapter = adapter
 
-            itemView.setOnClickListener {
-                interaction?.onItemSelected(adapterPosition, item)
-                item.isExpanded = !item.isExpanded
+            val state =  item.isExpanded
 
-                val state =  item.isExpanded
-
-                AnimationsUtils.toggleArrow(itemView.arrow, state)
-
-                if (state) {
-//                    AnimationsUtils.expand(itemView.taskRecycler)
-                    itemView.taskRecycler.visibility = View.VISIBLE
-                } else {
-//                    TransitionManager.beginDelayedTransition(itemView.root, AutoTransition())
-                    itemView.taskRecycler.visibility = View.GONE
-                }
-            }
+            itemView.taskRecycler.visibility = if (state) View.VISIBLE else View.GONE
+            itemView.arrow.rotation = if (!state) 0f else 180f
         }
     }
 

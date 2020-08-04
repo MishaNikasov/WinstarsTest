@@ -32,7 +32,7 @@ class SubTaskAdapter(private val interaction: Interaction? = null) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        return HeaderViewHolder(
+        return SubTaskViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_sub_task,
                 parent,
@@ -44,7 +44,7 @@ class SubTaskAdapter(private val interaction: Interaction? = null) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is HeaderViewHolder -> {
+            is SubTaskViewHolder -> {
                 holder.bind(differ.currentList[position])
             }
         }
@@ -58,7 +58,7 @@ class SubTaskAdapter(private val interaction: Interaction? = null) :
         differ.submitList(list)
     }
 
-    class HeaderViewHolder
+    class SubTaskViewHolder
     constructor(
         itemView: View,
         private val interaction: Interaction?

@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.nikasov.winstarstest.R
 import com.nikasov.winstarstest.data.local.model.TaskModel
-import com.nikasov.winstarstest.utils.AnimationsUtils
 import com.nikasov.winstarstest.utils.DateUtils
 import kotlinx.android.synthetic.main.item_task.view.*
 
@@ -33,7 +32,7 @@ class TaskAdapter(private val interaction: Interaction? = null) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        return HeaderViewHolder(
+        return TaskViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_task,
                 parent,
@@ -45,8 +44,15 @@ class TaskAdapter(private val interaction: Interaction? = null) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is HeaderViewHolder -> {
+            is TaskViewHolder -> {
                 holder.bind(differ.currentList[position])
+
+                val item =  differ.currentList[position]
+
+                holder.itemView.setOnClickListener {
+                    item.isExpanded = !item.isExpanded
+                    notifyItemChanged(position)
+                }
             }
         }
     }
@@ -59,7 +65,7 @@ class TaskAdapter(private val interaction: Interaction? = null) :
         differ.submitList(list)
     }
 
-    class HeaderViewHolder
+    class TaskViewHolder
     constructor(
         itemView: View,
         private val interaction: Interaction?
@@ -90,20 +96,10 @@ class TaskAdapter(private val interaction: Interaction? = null) :
 
             itemView.subTaskRecycler.adapter = adapter
 
-            itemView.arrow.setOnClickListener {
+            val state =  item.isExpanded
 
-                item.isExpanded = !item.isExpanded
-
-                val state= item.isExpanded
-
-                AnimationsUtils.toggleArrow(itemView.arrow, state)
-
-                if (state) {
-                    itemView.subTaskRecycler.visibility = View.VISIBLE
-                } else {
-                    itemView.subTaskRecycler.visibility = View.GONE
-                }
-            }
+            itemView.subTaskRecycler.visibility = if (state) View.VISIBLE else View.GONE
+            itemView.arrow.rotation = if (!state) 0f else 180f
         }
     }
 
