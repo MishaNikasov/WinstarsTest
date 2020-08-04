@@ -27,4 +27,5 @@
     <string name="you_can_only_sign_in_with_a_gmail_account">You can only sign in with a Gmail account</string>
     <string name="from_me">From me</string>
     <string name="to_me">To me</string>
+    <string name="comment">Comment</string>
 </resources>

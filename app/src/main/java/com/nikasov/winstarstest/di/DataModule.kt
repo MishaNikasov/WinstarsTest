@@ -1,6 +1,7 @@
 package com.nikasov.winstarstest.di
 
 import android.content.Context
+import com.nikasov.winstarstest.data.local.repository.FeedbackRepository
 import com.nikasov.winstarstest.data.local.repository.MessageRepository
 import com.nikasov.winstarstest.data.local.repository.ProfileRepository
 import dagger.Module
@@ -23,4 +24,10 @@ class DataModule {
     @Singleton
     fun provideMessageRepository (@ApplicationContext context: Context) =
         MessageRepository(context)
+
+    @Provides
+    @Singleton
+    fun provideFeedbackRepository (@ApplicationContext context: Context) =
+        FeedbackRepository(context)
+
 }

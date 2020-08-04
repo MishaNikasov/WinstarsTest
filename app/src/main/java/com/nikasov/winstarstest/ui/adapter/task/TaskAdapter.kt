@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.data.local.model.TaskModel
+import com.nikasov.winstarstest.data.local.model.task.TaskModel
 import com.nikasov.winstarstest.utils.DateUtils
 import kotlinx.android.synthetic.main.item_task.view.*
 

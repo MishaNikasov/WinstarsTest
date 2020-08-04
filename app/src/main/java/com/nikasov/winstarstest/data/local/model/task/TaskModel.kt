@@ -1,5 +1,6 @@
-package com.nikasov.winstarstest.data.local.model
+package com.nikasov.winstarstest.data.local.model.task
 
+import com.nikasov.winstarstest.data.local.model.task.SubTaskModel
 import java.util.*
 
 data class TaskModel(

@@ -99,4 +99,6 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
     // circular progress
     implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+    // rating bar
+    implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
 }

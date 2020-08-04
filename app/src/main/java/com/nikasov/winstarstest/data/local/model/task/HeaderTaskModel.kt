@@ -1,4 +1,4 @@
-package com.nikasov.winstarstest.data.local.model
+package com.nikasov.winstarstest.data.local.model.task
 
 data class HeaderTaskModel (
     var title : String,

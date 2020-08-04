@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.data.local.model.SubTaskModel
+import com.nikasov.winstarstest.data.local.model.task.SubTaskModel
 import kotlinx.android.synthetic.main.item_sub_task.view.*
 
 class SubTaskAdapter(private val interaction: Interaction? = null) :

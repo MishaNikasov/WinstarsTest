@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:paddingTop="@dimen/average_padding"
+    android:paddingBottom="@dimen/average_padding"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title"
+        android:textColor="@color/text_color_grey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Collective"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <me.zhanghai.android.materialratingbar.MaterialRatingBar
+        app:mrb_progressTint="@color/gold"
+        app:mrb_secondaryProgressTint="@color/gold"
+        app:mrb_progressBackgroundTint="@color/divider_color"
+        style="@style/Widget.App.RatingBar"
+        android:rating="4"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

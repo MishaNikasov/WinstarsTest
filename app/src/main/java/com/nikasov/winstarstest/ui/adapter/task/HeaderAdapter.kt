@@ -7,8 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.data.local.model.HeaderTaskModel
-import com.nikasov.winstarstest.utils.AnimationsUtils
+import com.nikasov.winstarstest.data.local.model.task.HeaderTaskModel
 import kotlinx.android.synthetic.main.item_task_header.view.*
 
 
