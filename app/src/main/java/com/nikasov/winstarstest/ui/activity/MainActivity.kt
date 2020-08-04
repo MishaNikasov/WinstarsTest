@@ -2,7 +2,6 @@ package com.nikasov.winstarstest.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.closedMessageFragment -> {
                     setUpTopBar(TopBarState.CLOSED_MESSAGE)
                 }
-                R.id.fromMeFragment -> {
+                R.id.taskFragment -> {
                     setTopTitle(destination.label.toString())
                     setUpTopBar(TopBarState.TASK)
                 }
@@ -76,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             }
             TopBarState.CLOSED_MESSAGE -> {
                 setTopTitle("All massage", "Closed notifications")
-                applyView(R.id.main)
+                applyView(R.id.titleTree)
             }
         }
     }
@@ -141,23 +140,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showExtendedTopBar(isShow : Boolean) {
-        if (isShow){
-            textArrows.alpha = 1f
-            secondText.alpha = 1f
-        } else {
-            textArrows.alpha = 0f
-            secondText.alpha = 0f
-        }
-    }
-
     private fun setTopTitle (title : String, secondString: String? = null) {
         if (secondString == null) {
             firstText.text = title
-            showExtendedTopBar(false)
         } else {
             secondText.text = secondString
-            showExtendedTopBar(true)
         }
     }
 

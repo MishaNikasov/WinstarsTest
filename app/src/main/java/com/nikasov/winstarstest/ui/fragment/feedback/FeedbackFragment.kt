@@ -8,7 +8,7 @@ import com.nikasov.winstarstest.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FeedbackFragment : Fragment(R.layout.fragment_new_task) {
+class FeedbackFragment : Fragment(R.layout.fragment_feedback) {
 
     private val viewModel : FeedbackViewModel by viewModels()
 

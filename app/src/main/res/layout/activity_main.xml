@@ -11,7 +11,7 @@
     tools:context=".ui.activity.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/winstarsLogoBg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_win"
@@ -20,7 +20,7 @@
         tools:ignore="ContentDescription" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:alpha="0"
+        android:alpha="1"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -91,8 +91,8 @@
         android:layout_marginStart="@dimen/big_margin"
         android:textColor="@color/white"
         android:textSize="@dimen/text_average"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/winstarsBigLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:alpha="0"
@@ -120,6 +120,7 @@
 
     <TextView
         android:id="@+id/descriptionText"
+        android:alpha="0"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/big_margin"
@@ -145,6 +146,7 @@
         tools:ignore="ContentDescription" />
 
     <ImageView
+        android:alpha="0"
         android:id="@+id/winstarsBigLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,38 +163,27 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/big_margin"
-        android:background="@drawable/bg_top_corners_transparent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
+        app:layout_constraintTop_toBottomOf="@+id/firstText"
+        android:background="@drawable/bg_top_corners_transparent"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:alpha="0"
-        android:id="@+id/statisticRecycler"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/big_margin"
         android:overScrollMode="never"
-        android:paddingStart="@dimen/basic_padding"
         android:paddingTop="@dimen/basic_padding"
-        android:paddingEnd="@dimen/basic_padding"
         android:paddingBottom="@dimen/basic_padding"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstText"
         app:layout_constraintTop_toTopOf="@+id/transparentBg"
+        android:alpha="0"
+        android:id="@+id/statisticRecycler"
+        android:paddingStart="@dimen/basic_padding"
+        android:paddingEnd="@dimen/basic_padding"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_statistic" />
-
-    <fragment
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/transparentBg"
-        app:navGraph="@navigation/navigation"
-        tools:ignore="FragmentTagUsage" />
 
     <TextView
         android:visibility="invisible"
@@ -224,6 +215,18 @@
         app:layout_constraintBottom_toTopOf="@id/nav_host_fragment"
         app:layout_constraintTop_toTopOf="@id/firstText"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <fragment
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/transparentBg"
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation"
+        tools:ignore="FragmentTagUsage" />
 
     <include
         android:id="@+id/splashScreen"

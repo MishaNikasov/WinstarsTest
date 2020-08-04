@@ -1,12 +1,11 @@
-package com.nikasov.winstarstest.ui.fragment.tasks.fromme
+package com.nikasov.winstarstest.ui.fragment.tasks.task
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import com.nikasov.winstarstest.data.Prefs
-import com.nikasov.winstarstest.data.local.repository.MessageRepository
 import com.nikasov.winstarstest.data.local.repository.TaskRepository
 
-class FromMeViewModel @ViewModelInject constructor(
+class TaskViewModel @ViewModelInject constructor(
     private val taskRepository: TaskRepository,
     private val prefs: Prefs
 ) : ViewModel(){

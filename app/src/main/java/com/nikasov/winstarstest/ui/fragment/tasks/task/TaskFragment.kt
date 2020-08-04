@@ -1,4 +1,4 @@
-package com.nikasov.winstarstest.ui.fragment.tasks.fromme
+package com.nikasov.winstarstest.ui.fragment.tasks.task
 
 import android.os.Bundle
 import android.view.View
@@ -11,9 +11,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_from_me.*
 
 @AndroidEntryPoint
-class FromMeFragment : Fragment(R.layout.fragment_from_me) {
+class TaskFragment : Fragment(R.layout.fragment_from_me) {
 
-    private val fromMeViewModel : FromMeViewModel by viewModels()
+    private val taskViewModel : TaskViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +31,7 @@ class FromMeFragment : Fragment(R.layout.fragment_from_me) {
 
         taskRecycler.adapter = taskAdapter
 
-        fromMeViewModel.list.observe(viewLifecycleOwner, Observer { list ->
+        taskViewModel.list.observe(viewLifecycleOwner, Observer { list ->
             taskAdapter.submitList(list)
         })
     }

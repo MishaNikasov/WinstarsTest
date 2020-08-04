@@ -44,8 +44,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun goToAction(title: String) {
         when (title) {
-            resources.getString(R.string.time_tracking) -> findNavController().navigate(R.id.from_profile_to_timeTracking)
-            resources.getString(R.string.tasks) -> findNavController().navigate(R.id.toFromMeFragment)
+            resources.getString(R.string.time_tracking) -> findNavController().navigate(R.id.toTimeTracking)
+            resources.getString(R.string.tasks) -> findNavController().navigate(R.id.toTaskFragment)
+            resources.getString(R.string.day_off) -> findNavController().navigate(R.id.toDayOffFragment)
+            resources.getString(R.string.job_offer) -> findNavController().navigate(R.id.toJobOfferFragment)
+            resources.getString(R.string.bonuses) -> findNavController().navigate(R.id.toBonusesFragment)
+//            resources.getString(R.string.winstars_open) -> findNavController().navigate(R.id.)
+            resources.getString(R.string.feedback) -> findNavController().navigate(R.id.toFeedbackFragment)
         }
     }
 
