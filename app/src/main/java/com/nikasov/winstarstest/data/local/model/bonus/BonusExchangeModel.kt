@@ -1,4 +1,4 @@
-package com.nikasov.winstarstest.data.local.model
+package com.nikasov.winstarstest.data.local.model.bonus
 
 data class BonusExchangeModel (
     var amount : Int,

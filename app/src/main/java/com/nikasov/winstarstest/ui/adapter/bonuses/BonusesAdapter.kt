@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.data.local.model.BonusModel
+import com.nikasov.winstarstest.data.local.model.bonus.BonusModel
 import com.nikasov.winstarstest.utils.DateUtils
 import kotlinx.android.synthetic.main.item_bonus.view.*
 import java.lang.StringBuilder

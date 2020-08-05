@@ -96,6 +96,9 @@
         <action
             android:id="@+id/toBonusesExchangeFragment"
             app:destination="@id/bonusesExchangeFragment" />
+        <action
+            android:id="@+id/toBonusesInfoFragment"
+            app:destination="@id/bonusesInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/dayOffFragment"
@@ -117,5 +120,9 @@
         android:id="@+id/bonusesExchangeFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.bonuses.exchange.BonusesExchangeFragment"
         android:label="BonusesExchangeFragment" />
+    <fragment
+        android:id="@+id/bonusesInfoFragment"
+        android:name="com.nikasov.winstarstest.ui.fragment.bonuses.info.BonusesInfoFragment"
+        android:label="BonusesInfoFragment" />
 
 </navigation>

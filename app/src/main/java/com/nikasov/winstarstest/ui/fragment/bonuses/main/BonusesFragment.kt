@@ -28,6 +28,9 @@ class BonusesFragment : Fragment(R.layout.fragment_bonuses) {
         bonusesExchange.setOnClickListener {
             findNavController().navigate(R.id.toBonusesExchangeFragment)
         }
+        info.setOnClickListener {
+            findNavController().navigate(R.id.toBonusesInfoFragment)
+        }
     }
 
     private fun setUpList() {

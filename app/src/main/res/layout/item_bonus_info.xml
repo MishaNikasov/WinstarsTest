@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:id="@+id/amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="400"
+            android:text="+ 400"
             android:textColor="@color/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,39 +37,46 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginStart="@dimen/biggest_margin"
+        android:id="@+id/txtBlock"
+        android:orientation="vertical"
+        android:layout_marginEnd="@dimen/average_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bonusesBlock"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="For early delivery of the project"
+            android:textColor="@color/text_color_dark"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:textSize="@dimen/text_small"
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Something very important needs to be done if the work is to be appreciated."
+            android:textColor="@color/text_color_grey" />
 
     </LinearLayout>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/biggest_margin"
-        android:text="Bonus name number 1"
-        android:textColor="@color/text_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bonusesBlock"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:textAllCaps="false"
-        android:layout_marginEnd="@dimen/average_margin"
-        android:text="Exchange"
-        android:textColor="@color/colorPrimary"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/bottomDivider"
         android:layout_width="0dp"
         android:layout_height="1dp"
+        android:layout_marginTop="@dimen/average_margin"
         android:background="@color/divider_color_light"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/description" />
+        app:layout_constraintStart_toStartOf="@+id/txtBlock"
+        app:layout_constraintTop_toBottomOf="@id/txtBlock" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

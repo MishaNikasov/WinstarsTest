@@ -45,6 +45,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.bonusesExchangeFragment -> {
                     setUpTopBar(TopBarState.BONUSES_EXCHANGE)
                 }
+                R.id.bonusesInfoFragment -> {
+                    setUpTopBar(TopBarState.BONUSES_INFO)
+                }
                 R.id.taskFragment -> {
                     setTopTitle(destination.label.toString())
                     setUpTopBar(TopBarState.TASK)
@@ -82,6 +85,10 @@ class MainActivity : AppCompatActivity() {
             }
             TopBarState.BONUSES_EXCHANGE -> {
                 setTopTitle("Bonuses", "Bonuses exchange")
+                applyView(R.id.titleTree)
+            }
+            TopBarState.BONUSES_INFO -> {
+                setTopTitle("Bonuses", "Bonuses Info")
                 applyView(R.id.titleTree)
             }
         }
@@ -179,6 +186,7 @@ class MainActivity : AppCompatActivity() {
         PROFILE,
         CLOSED_MESSAGE,
         TASK,
-        BONUSES_EXCHANGE
+        BONUSES_EXCHANGE,
+        BONUSES_INFO
     }
 }

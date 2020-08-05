@@ -7,18 +7,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import com.nikasov.winstarstest.R
-import com.nikasov.winstarstest.data.local.model.bonus.BonusExchangeModel
-import kotlinx.android.synthetic.main.item_bonus_exchange.view.*
+import com.nikasov.winstarstest.data.local.model.bonus.BonusInfoModel
+import kotlinx.android.synthetic.main.item_bonus_info.view.*
 
-class BonusesExchangeAdapter(private val interaction: Interaction? = null) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class BonusesInfoAdapter(private val interaction: Interaction? = null) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<BonusExchangeModel>() {
+    private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<BonusInfoModel>() {
 
-        override fun areItemsTheSame(oldItem: BonusExchangeModel, newItem: BonusExchangeModel): Boolean {
+        override fun areItemsTheSame(oldItem: BonusInfoModel, newItem: BonusInfoModel): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: BonusExchangeModel, newItem: BonusExchangeModel): Boolean {
+        override fun areContentsTheSame(oldItem: BonusInfoModel, newItem: BonusInfoModel): Boolean {
             return oldItem == newItem
         }
     }
@@ -28,7 +28,7 @@ class BonusesExchangeAdapter(private val interaction: Interaction? = null) : Rec
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return FeedbackStatViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_bonus_exchange,
+                R.layout.item_bonus_info,
                 parent,
                 false
             ), interaction
@@ -38,7 +38,7 @@ class BonusesExchangeAdapter(private val interaction: Interaction? = null) : Rec
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is FeedbackStatViewHolder -> {
-                holder.bind(differ.currentList[position])
+                holder.bind(differ.currentList.get(position))
             }
         }
     }
@@ -47,7 +47,7 @@ class BonusesExchangeAdapter(private val interaction: Interaction? = null) : Rec
         return differ.currentList.size
     }
 
-    fun submitList(list: List<BonusExchangeModel>) {
+    fun submitList(list: List<BonusInfoModel>) {
         differ.submitList(list)
     }
 
@@ -57,17 +57,26 @@ class BonusesExchangeAdapter(private val interaction: Interaction? = null) : Rec
         private val interaction: Interaction?
     ) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: BonusExchangeModel) = with(itemView) {
+        fun bind(item: BonusInfoModel) = with(itemView) {
             itemView.setOnClickListener {
                 interaction?.onItemSelected(adapterPosition, item)
             }
+
+            val amountTxt : String = if (item.amount > 0) {
+                "+ ${item.amount}"
+            } else {
+                "- ${item.amount*-1}"
+            }
+
+            itemView.amount.text = amountTxt
+            itemView.title.text = item.title
             itemView.description.text = item.description
-            itemView.amount.text = "${item.amount}"
+
         }
     }
 
     interface Interaction {
-        fun onItemSelected(position: Int, item: BonusExchangeModel)
+        fun onItemSelected(position: Int, item: BonusInfoModel)
     }
 }
 
