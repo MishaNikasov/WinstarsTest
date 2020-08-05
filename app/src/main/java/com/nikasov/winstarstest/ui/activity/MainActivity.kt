@@ -113,13 +113,13 @@ class MainActivity : AppCompatActivity() {
     private fun launchSplashScreen() {
         val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out)
         CoroutineScope(Dispatchers.Main).launch {
-//            splashScreen.alpha = 1f
+            splashScreen.alpha = 1f
             delay(1000)
             setUpController()
             delay(1000)
-//            splashScreen.startAnimation(fadeOutAnimation)
+            splashScreen.startAnimation(fadeOutAnimation)
             delay(250)
-//            splashScreen.alpha = 0f
+            splashScreen.alpha = 0f
         }
     }
 

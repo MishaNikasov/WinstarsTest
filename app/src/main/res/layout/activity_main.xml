@@ -20,10 +20,10 @@
         tools:ignore="ContentDescription" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:alpha="1"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:alpha="1"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -41,22 +41,34 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_marginStart="@dimen/big_margin"
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/big_margin"
             android:src="@drawable/ic_win_logo_small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:id="@+id/notifications"
-            android:layout_marginEnd="@dimen/average_margin"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginEnd="22dp"
+            android:text="23"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_smallest"
+            app:layout_constraintEnd_toEndOf="@+id/notifications"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/notifications"
+            app:layout_constraintTop_toTopOf="@+id/notifications" />
+
+        <ImageView
+            android:id="@+id/notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/big_margin"
             android:background="@drawable/ripple_bg_round"
             android:clickable="true"
             android:focusable="true"
@@ -68,13 +80,14 @@
 
         <ImageView
             android:id="@+id/star"
-            android:layout_marginEnd="@dimen/big_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/big_margin"
             android:background="@drawable/ripple_bg_round"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_star"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -236,5 +249,11 @@
         app:navGraph="@navigation/navigation"
         tools:ignore="FragmentTagUsage" />
 
+    <include
+        android:id="@+id/splashScreen"
+        android:alpha="0"
+        layout="@layout/splash_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

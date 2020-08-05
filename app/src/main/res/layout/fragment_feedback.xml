@@ -16,7 +16,7 @@
             android:layout_marginTop="@dimen/big_margin"
             android:paddingTop="@dimen/average_padding"
             android:paddingBottom="@dimen/average_padding"
-            android:id="@+id/constraintLayout2"
+            android:id="@+id/topBlock"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:gravity="center"
@@ -89,7 +89,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+            app:layout_constraintTop_toBottomOf="@+id/topBlock"
             tools:listitem="@layout/item_feedback_stat" />
 
         <EditText

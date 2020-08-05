@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.transition.MaterialFadeThrough
 import com.nikasov.winstarstest.R
 import com.nikasov.winstarstest.data.room.model.tracking.TimeTrackingTypes
 import com.nikasov.winstarstest.utils.DateUtils
@@ -27,6 +28,7 @@ class TimeTrackingFragment : Fragment(R.layout.fragment_time_tracking) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        enterTransition = MaterialFadeThrough()
 
         initUi()
         setUpCalendar()
