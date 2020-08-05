@@ -158,14 +158,14 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
 
-    <FrameLayout
+    <ImageView
         android:id="@+id/transparentBg"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/big_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstText"
-        android:background="@drawable/bg_top_corners_transparent"/>
+        android:src="@drawable/bg_top_corners_transparent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:visibility="invisible"
@@ -216,6 +216,14 @@
         app:layout_constraintTop_toTopOf="@id/firstText"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <ImageView
+        android:id="@+id/whiteBg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment"
+        android:src="@drawable/bg_top_corners"/>
+
     <fragment
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -228,11 +236,5 @@
         app:navGraph="@navigation/navigation"
         tools:ignore="FragmentTagUsage" />
 
-    <include
-        android:id="@+id/splashScreen"
-        android:alpha="0"
-        layout="@layout/splash_screen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

@@ -93,6 +93,7 @@
             tools:listitem="@layout/item_feedback_stat" />
 
         <EditText
+            android:visibility="gone"
             style="@style/Widget.App.EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,6 +104,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/statRecycler" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField"
+            app:hintEnabled="false"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginEnd="@dimen/big_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statRecycler"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:background="@color/white"
+                android:hint="@string/comment"
+                android:paddingTop="10dp"
+                android:paddingStart="0dp"
+                android:textSize="14sp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vote"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/statRecycler"
+            app:layout_constraintTop_toBottomOf="@+id/textField" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
 

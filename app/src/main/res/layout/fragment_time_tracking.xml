@@ -15,7 +15,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_marginBottom="@dimen/big_margin"
-            android:id="@+id/transparentBg"
+            android:id="@+id/whiteBg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="@dimen/big_margin"

@@ -1,6 +1,7 @@
 package com.nikasov.winstarstest.di
 
 import android.content.Context
+import com.nikasov.winstarstest.data.local.repository.BonusesRepository
 import com.nikasov.winstarstest.data.local.repository.FeedbackRepository
 import com.nikasov.winstarstest.data.local.repository.MessageRepository
 import com.nikasov.winstarstest.data.local.repository.ProfileRepository
@@ -29,5 +30,10 @@ class DataModule {
     @Singleton
     fun provideFeedbackRepository (@ApplicationContext context: Context) =
         FeedbackRepository(context)
+
+    @Provides
+    @Singleton
+    fun provideBonusesRepository (@ApplicationContext context: Context) =
+        BonusesRepository(context)
 
 }

@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.android.material.transition.MaterialFade
+import com.google.android.material.transition.MaterialFadeThrough
+import com.google.android.material.transition.MaterialSharedAxis
 import com.nikasov.winstarstest.R
 import com.nikasov.winstarstest.ui.adapter.FeedbackStatAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,6 +19,7 @@ class FeedbackFragment : Fragment(R.layout.fragment_feedback) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        enterTransition = MaterialFadeThrough()
         setUpUi()
     }
 

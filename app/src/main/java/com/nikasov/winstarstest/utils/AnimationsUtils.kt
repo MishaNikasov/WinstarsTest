@@ -2,9 +2,8 @@ package com.nikasov.winstarstest.utils
 
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.Transformation
-
+import androidx.transition.TransitionManager
+import com.google.android.material.transition.MaterialFade
 
 object AnimationsUtils {
 
@@ -18,48 +17,19 @@ object AnimationsUtils {
         }
     }
 
-    fun expand(view: View) {
+    fun expand(view: ViewGroup) {
+        val materialFade = MaterialFade().apply {
+            duration = 150L
+        }
+        TransitionManager.beginDelayedTransition(view, materialFade)
         view.visibility = View.VISIBLE
     }
 
-    private fun expandAction(view: View): Animation {
-        view.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        val actualheight = view.measuredHeight
-        view.layoutParams.height = 0
-        view.visibility = View.VISIBLE
-        val animation: Animation = object : Animation() {
-            override fun applyTransformation(
-                interpolatedTime: Float,
-                t: Transformation?
-            ) {
-                view.layoutParams.height =
-                    if (interpolatedTime == 1f) ViewGroup.LayoutParams.WRAP_CONTENT else (actualheight * interpolatedTime).toInt()
-                view.requestLayout()
-            }
+    fun collapse(view: ViewGroup) {
+        val materialFade = MaterialFade().apply {
+            duration = 150L
         }
-        animation.duration = 250
-        view.startAnimation(animation)
-        return animation
-    }
-
-    fun collapse(view: View) {
-        val actualHeight = view.measuredHeight
-        val animation: Animation = object : Animation() {
-            override fun applyTransformation(
-                interpolatedTime: Float,
-                t: Transformation?
-            ) {
-                if (interpolatedTime == 1f) {
-                    view.visibility = View.GONE
-                } else {
-                    view.layoutParams.height =
-                        actualHeight - (actualHeight * interpolatedTime).toInt()
-                    view.requestLayout()
-                }
-            }
-        }
-        animation.duration = (actualHeight / view.context.resources
-            .displayMetrics.density).toLong()
-        view.startAnimation(animation)
+        TransitionManager.beginDelayedTransition(view, materialFade)
+        view.visibility = View.GONE
     }
 }

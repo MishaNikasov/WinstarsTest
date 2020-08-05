@@ -91,8 +91,12 @@
         android:label="Feedback" />
     <fragment
         android:id="@+id/bonusesFragment"
-        android:name="com.nikasov.winstarstest.ui.fragment.bonuses.BonusesFragment"
-        android:label="Bonuses" />
+        android:name="com.nikasov.winstarstest.ui.fragment.bonuses.main.BonusesFragment"
+        android:label="Bonuses" >
+        <action
+            android:id="@+id/toBonusesExchangeFragment"
+            app:destination="@id/bonusesExchangeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/dayOffFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.dayoff.DayOffFragment"
@@ -109,5 +113,9 @@
         android:id="@+id/newTaskFragment"
         android:name="com.nikasov.winstarstest.ui.fragment.tasks.newtask.NewTaskFragment"
         android:label="New task" />
+    <fragment
+        android:id="@+id/bonusesExchangeFragment"
+        android:name="com.nikasov.winstarstest.ui.fragment.bonuses.exchange.BonusesExchangeFragment"
+        android:label="BonusesExchangeFragment" />
 
 </navigation>

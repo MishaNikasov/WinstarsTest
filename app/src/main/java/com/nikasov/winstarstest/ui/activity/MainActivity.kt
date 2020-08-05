@@ -42,6 +42,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.closedMessageFragment -> {
                     setUpTopBar(TopBarState.CLOSED_MESSAGE)
                 }
+                R.id.bonusesExchangeFragment -> {
+                    setUpTopBar(TopBarState.BONUSES_EXCHANGE)
+                }
                 R.id.taskFragment -> {
                     setTopTitle(destination.label.toString())
                     setUpTopBar(TopBarState.TASK)
@@ -77,6 +80,10 @@ class MainActivity : AppCompatActivity() {
                 setTopTitle("All massage", "Closed notifications")
                 applyView(R.id.titleTree)
             }
+            TopBarState.BONUSES_EXCHANGE -> {
+                setTopTitle("Bonuses", "Bonuses exchange")
+                applyView(R.id.titleTree)
+            }
         }
     }
 
@@ -99,13 +106,13 @@ class MainActivity : AppCompatActivity() {
     private fun launchSplashScreen() {
         val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out)
         CoroutineScope(Dispatchers.Main).launch {
-            splashScreen.alpha = 1f
+//            splashScreen.alpha = 1f
             delay(1000)
             setUpController()
             delay(1000)
-            splashScreen.startAnimation(fadeOutAnimation)
+//            splashScreen.startAnimation(fadeOutAnimation)
             delay(250)
-            splashScreen.alpha = 0f
+//            splashScreen.alpha = 0f
         }
     }
 
@@ -171,6 +178,7 @@ class MainActivity : AppCompatActivity() {
         AUTH,
         PROFILE,
         CLOSED_MESSAGE,
-        TASK
+        TASK,
+        BONUSES_EXCHANGE
     }
 }
