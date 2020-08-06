@@ -14,7 +14,8 @@
     <string name="day_format">EEEE d</string>
     <string name="year_format">yyyy MMMM</string>
     <string name="time_format">hh:mm</string>
-    <string name="date_with_year">yy.MM.dd</string>
+    <string name="date_with_year">dd.MM.yy</string>
+    <string name="date_without_year">dd.MM</string>
     <string name="task_format">EEEE d, hh:mm</string>
     <string name="h">h</string>
     <string name="bottom_info">If you have any questions, please contact to the <font color='#1E43A5'>Head Office</font></string>

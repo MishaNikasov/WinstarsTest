@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_top_corners"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/bg_top_corners">
 
     <com.mikhaellopez.circularprogressbar.CircularProgressBar
-        android:layout_marginTop="@dimen/biggest_padding_s"
         android:id="@+id/circularProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
+        android:layout_marginTop="@dimen/biggest_padding_s"
         android:layout_weight="1"
         android:gravity="center"
         app:cpb_background_progressbar_color="@color/gold"
@@ -23,64 +23,68 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/circularProgressBar"
         app:layout_constraintEnd_toEndOf="@+id/circularProgressBar"
         app:layout_constraintStart_toStartOf="@+id/circularProgressBar"
-        app:layout_constraintTop_toTopOf="@+id/circularProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        app:layout_constraintTop_toTopOf="@+id/circularProgressBar">
 
         <com.google.android.material.textview.MaterialTextView
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_title_large"
             android:id="@+id/amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="900" />
+            android:text="900"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_title_large" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:textColor="@color/text_color"
             android:id="@+id/bonusesTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bonuses"/>
+            android:text="Bonuses"
+            android:textColor="@color/text_color" />
     </LinearLayout>
 
 
     <ImageView
         android:id="@+id/info"
-        android:background="@drawable/ripple_bg_round"
-        android:layout_marginTop="@dimen/big_margin"
-        android:layout_marginEnd="@dimen/big_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/average_margin"
+        android:layout_marginEnd="@dimen/average_margin"
+        android:background="@drawable/ripple_bg_round"
+        android:padding="@dimen/average_padding"
         android:src="@drawable/ic_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        tools:listitem="@layout/item_bonus"
         android:id="@+id/bonusesRecycler"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/big_padding"
         android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circularProgressBar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circularProgressBar"
+        tools:listitem="@layout/item_bonus" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/bonusesExchange"
-        app:backgroundTint="@color/colorPrimary"
-        app:srcCompat="@drawable/ic_loop"
-        app:tint="@color/white"
-        app:useCompatPadding="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_loop"
+        app:tint="@color/white"
+        app:useCompatPadding="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

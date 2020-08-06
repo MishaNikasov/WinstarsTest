@@ -42,23 +42,26 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/description"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/average_margin"
         android:layout_marginStart="@dimen/biggest_margin"
         android:text="Bonus name number 1"
         android:textColor="@color/text_color"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/materialButton"
         app:layout_constraintStart_toEndOf="@+id/bonusesBlock"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:textAllCaps="false"
-        android:layout_marginEnd="@dimen/average_margin"
-        android:text="Exchange"
-        android:textColor="@color/colorPrimary"
+        android:id="@+id/materialButton"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/average_margin"
+        android:text="Exchange"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

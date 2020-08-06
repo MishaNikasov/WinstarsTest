@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_begin="90dp" />
+            app:layout_constraintGuide_begin="70dp" />
 
         <TextView
             android:id="@+id/startDateTxt"
@@ -45,11 +45,13 @@
 
         <TextView
             android:id="@+id/startDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/basic_margin"
             android:text="02.03.2020"
             android:textColor="@color/text_color_dark"
             android:textSize="@dimen/text_normal"
+            app:layout_constraintEnd_toStartOf="@+id/circularProgressBar"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/startDateTxt" />
 
@@ -70,11 +72,13 @@
 
         <TextView
             android:id="@+id/endDate"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/basic_margin"
             android:text="02.03.2021"
             android:textColor="@color/text_color_dark"
             android:textSize="@dimen/text_normal"
+            app:layout_constraintEnd_toStartOf="@+id/circularProgressBar"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/endDayTxt" />
 
@@ -136,7 +140,6 @@
         tools:itemCount="3"
         tools:listitem="@layout/item_job_offer" />
 
-
     <include
         android:id="@+id/bottom"
         layout="@layout/contact_us"
@@ -145,6 +148,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

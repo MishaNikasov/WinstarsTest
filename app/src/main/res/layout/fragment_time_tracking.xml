@@ -25,6 +25,7 @@
             <ImageView
                 android:id="@+id/calendarBtn"
                 android:layout_width="24dp"
+                android:padding="@dimen/small_padding"
                 android:layout_height="24dp"
                 android:layout_marginStart="@dimen/big_margin"
                 android:background="?selectableItemBackgroundBorderless"

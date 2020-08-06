@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:id="@+id/trackingRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/bg_top_corners"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/whiteBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstText">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topBlock"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/big_margin"
+            android:layout_marginEnd="@dimen/big_margin"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/average_padding"
+            android:paddingBottom="@dimen/average_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/calendarBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@drawable/ripple_bg_round"
+                android:padding="@dimen/small_padding"
+                android:src="@drawable/ic_event"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dayText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/average_margin"
+                android:text="Monday 11"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_title"
+                app:layout_constraintBottom_toBottomOf="@+id/calendarBtn"
+                app:layout_constraintStart_toEndOf="@+id/calendarBtn"
+                app:layout_constraintTop_toTopOf="@+id/calendarBtn" />
+
+            <TextView
+                android:id="@+id/yearText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2020 April"
+                android:textColor="@color/text_color_light"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintStart_toStartOf="@+id/dayText"
+                app:layout_constraintTop_toBottomOf="@+id/dayText" />
+
+
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/circularProgressBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:cpb_background_progressbar_color="@color/red"
+                app:cpb_background_progressbar_width="15dp"
+                app:cpb_progress="65"
+                app:cpb_progressbar_color="@color/green"
+                app:cpb_progressbar_width="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="24"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/text_title_large"
+                app:layout_constraintBottom_toTopOf="@+id/monthTxt"
+                app:layout_constraintEnd_toEndOf="@+id/circularProgressBar"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/circularProgressBar"
+                app:layout_constraintTop_toBottomOf="@+id/circularProgressBar" />
+
+            <TextView
+                android:id="@+id/monthTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="days"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_normal"
+                app:layout_constraintBottom_toTopOf="@+id/circularProgressBar"
+                app:layout_constraintEnd_toEndOf="@+id/year"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/year"
+                app:layout_constraintTop_toBottomOf="@+id/year" />
+
+            <TextView
+                android:id="@+id/used"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="19"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/text_title_large"
+                app:layout_constraintBottom_toTopOf="@+id/usedTxt"
+                app:layout_constraintEnd_toStartOf="@+id/allday"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yearText"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/usedTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="used"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/used"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/used"
+                app:layout_constraintTop_toBottomOf="@+id/used" />
+
+            <TextView
+                android:id="@+id/allday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="43"
+                android:textColor="@color/text_color_dark"
+                android:textSize="@dimen/text_title_large"
+                app:layout_constraintBottom_toTopOf="@+id/alldayTxt"
+                app:layout_constraintEnd_toStartOf="@+id/circularProgressBar"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/used"
+                app:layout_constraintTop_toBottomOf="@+id/yearText"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/alldayTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="all day"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/allday"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/allday"
+                app:layout_constraintTop_toBottomOf="@+id/allday" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dayOffRecycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/average_margin"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/topBlock"
+            app:layout_constraintTop_toBottomOf="@+id/topBlock"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_day_off" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/finishWorkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_add_blue"
+            app:tint="@color/white"
+            app:useCompatPadding="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+
+
+
